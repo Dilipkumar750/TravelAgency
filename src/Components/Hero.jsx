@@ -21,7 +21,7 @@ const Hero = () => {
   return (
     <div
       className="h-screen w-screen bg-cover bg-center relative"
-    //   style={{ backgroundImage: `url(${home})` }}
+      style={{ backgroundImage: `url(${home})` }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
