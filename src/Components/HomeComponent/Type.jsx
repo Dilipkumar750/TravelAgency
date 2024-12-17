@@ -1,8 +1,8 @@
 import React from 'react';
-import resort from "../assets/resorts.jpg";
-import city from "../assets/apartments.jpg";
-import beachfront from "../assets/hotel.avif";
-import villa from "../assets/villa.jpg";
+import resort from "../../assets/resorts.jpg";
+import city from "../../assets/apartments.jpg";
+import beachfront from "../../assets/hotel.avif";
+import villa from "../../assets/villa.jpg";
 
 const Type = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
-import bali from "../assets/bali.jpeg";
-import effiel from "../assets/effiel.jpeg";
-import maldives from "../assets/maldives.jpeg";
+import bali from "../../assets/bali.jpeg";
+import effiel from "../../assets/effiel.jpeg";
+import maldives from "../../assets/maldives.jpeg";
 
 const Top = () => {
   return (
