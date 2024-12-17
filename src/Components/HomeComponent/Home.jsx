@@ -5,6 +5,7 @@ import Offers from './Offers'
 import Type from './Type'
 import Travel from './Travel'
 import Search from './Search'
+import Connection from './Connection'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Offers/>
       <Type/>
       <Travel/>
+      <Connection/>
       <Search/>
     </div>
   )

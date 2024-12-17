@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import bgImage from "../assets/bgimage.png";
-import rightImage from "../assets/bg.png";
+import bgImage from "../../assets/bgimage.png";
+import rightImage from "../../assets/bg.png";
 
 const TravelApp = () => {
   const [inputType, setInputType] = useState("mobile");
@@ -16,12 +16,12 @@ const TravelApp = () => {
 
   return (
     <div
-      className="h-screen w-screen bg-cover bg-center p-60"
+      className="h-screen w-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="h-full w-full flex items-center justify-center">
         {/* Main content area */}
-        <div className="h-auto w-1/3 max-w-4xl rounded-2xl mx-4 p-6 flex flex-col justify-center items-start">
+        <div className="h-auto w-full max-w-4xl bg-black bg-opacity-50 rounded-2xl mx-4 p-6 flex flex-col justify-center items-start">
           <h1 className="text-white text-5xl font-bold mb-4 text-center">
             Your All-In-One Travel App
           </h1>
@@ -77,7 +77,7 @@ const TravelApp = () => {
 
         {/* Right Side Image */}
         <div className="hidden md:block md:w-1/2">
-          <img src={rightImage} alt="Travel Image" className="h-90 w-90 object-cover" />
+          <img src={rightImage} alt="Travel Image" className="h-full w-full object-cover" />
         </div>
       </div>
     </div>
