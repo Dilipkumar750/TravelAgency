@@ -13,7 +13,8 @@ import About from './Components/AboutComponent/About';
 import Testimonials from './Components/AboutComponent/Testimonials';
 import Awards from './Components/AboutComponent/Awards';
 import History from './Components/AboutComponent/History';
-
+import TermsAndConditions from './Components/AboutComponent/TermsAndConditions';
+import PrivacyPolicy from './Components/AboutComponent/PrivacyPolicy';
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +31,8 @@ function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/awards" element={<Awards />} />
         <Route path="/history" element={<History />} />
+        <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
         <Route path="/SignUp" element={<SignUp />} />
       </Routes>
 
