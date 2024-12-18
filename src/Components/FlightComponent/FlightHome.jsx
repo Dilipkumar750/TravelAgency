@@ -1,12 +1,29 @@
-import React from 'react'
-import FlightHero from './FlightHero'
+import React from 'react';
+import FlightHero from './FlightHero';
+import TopDestinations from './TopDestinations';
+import PopularFlights from './PopularFlights';    
+// import TravelDeals from './TravelDeals';
+// import CustomerReviews from './CustomerReviews';
 
 const FlightHome = () => {
   return (
     <div>
-      <FlightHero/>
-    </div>
-  )
-}
+     
+      <FlightHero />
 
-export default FlightHome
+  
+      <TopDestinations />
+
+      
+       <PopularFlights />
+ 
+      
+      {/* <TravelDeals /> */}
+
+   
+      {/* <CustomerReviews />  */}
+    </div>
+  );
+};
+
+export default FlightHome;
