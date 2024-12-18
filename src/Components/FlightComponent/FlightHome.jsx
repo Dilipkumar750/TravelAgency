@@ -2,8 +2,8 @@ import React from 'react';
 import FlightHero from './FlightHero';
 import TopDestinations from './TopDestinations';
 import PopularFlights from './PopularFlights';    
-// import TravelDeals from './TravelDeals';
-// import CustomerReviews from './CustomerReviews';
+import TravelDeals from './TravelDeals';
+import CustomerReviews from './CustomerReviews';
 
 const FlightHome = () => {
   return (
@@ -18,10 +18,10 @@ const FlightHome = () => {
        <PopularFlights />
  
       
-      {/* <TravelDeals /> */}
+      <TravelDeals />
 
    
-      {/* <CustomerReviews />  */}
+      <CustomerReviews /> 
     </div>
   );
 };
