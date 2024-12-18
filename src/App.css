@@ -1,0 +1,9 @@
+.ReactModal__Overlay {
+    overflow: hidden;
+  }
+  
+  .ReactModal__Content {
+    overflow: auto;
+    max-height: 90vh;
+  }
+  
