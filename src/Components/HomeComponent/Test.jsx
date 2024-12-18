@@ -59,7 +59,6 @@ const TestimonialCarousel = () => {
 
       <div className="relative max-w-5xl mx-auto mt-6 px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          {/* Testimonial Image */}
           <div className="flex items-center space-x-6">
             <img
               src={currentTestimonial.image}
@@ -74,18 +73,15 @@ const TestimonialCarousel = () => {
             </div>
           </div>
 
-          {/* Testimonial Text */}
           <div className="relative bg-gray-100 p-6 rounded-lg shadow-md">
             <p className="text-gray-600 text-sm mt-4">
               {currentTestimonial.text}
             </p>
 
-            {/* Floating Circle Effect */}
             <div className="absolute w-10 h-10 bg-blue-500 rounded-full top-[-20px] right-[-20px] animate-floating"></div>
           </div>
         </div>
 
-        {/* "View All" Button */}
         <div className="mt-6 text-center">
           <Link
             to="/testimonials"
@@ -96,7 +92,6 @@ const TestimonialCarousel = () => {
         </div>
       </div>
 
-      {/* Custom CSS Keyframes */}
       <style>{`
         @keyframes floating {
           0% { transform: translateY(0); }

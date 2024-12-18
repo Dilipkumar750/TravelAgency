@@ -5,7 +5,12 @@ const Navbar = () => {
 
   const handleDropdownClick = (link) => {
     console.log(`Navigating to ${link}`);
-    setIsDropdownOpen(false); // Close the dropdown after selecting an item
+    setIsDropdownOpen(false); // Close the dropdown after clicking
+    window.location.href = link; // Navigate to the selected link
+  };
+
+  const handleAboutClick = () => {
+    setIsDropdownOpen(!isDropdownOpen); // Toggle dropdown on click
   };
 
   return (
@@ -16,12 +21,11 @@ const Navbar = () => {
       </a>
 
       {/* About Us with Dropdown */}
-      <div
-        className="relative"
-        onMouseEnter={() => setIsDropdownOpen(true)}
-        onMouseLeave={() => setIsDropdownOpen(false)}
-      >
-        <span className="cursor-pointer hover:text-gray-400" onClick={() => setIsDropdownOpen(true)}>
+      <div className="relative">
+        <span
+          className="cursor-pointer hover:text-gray-400"
+          onClick={handleAboutClick}
+        >
           About Us
         </span>
 
@@ -55,6 +59,21 @@ const Navbar = () => {
               className="block px-4 py-2 hover:bg-gray-200"
             >
               History
+            </a>
+            <a
+              href="/TermsAndConditions"
+              onClick={() => handleDropdownClick('/history')}
+              className="block px-4 py-2 hover:bg-gray-200"
+            >
+              Terms & Conditions
+            </a>
+            <a
+              href="/PrivacyPolicy
+"
+              onClick={() => handleDropdownClick('/history')}
+              className="block px-4 py-2 hover:bg-gray-200"
+            >
+              Privacy Policy
             </a>
           </div>
         )}
