@@ -6,6 +6,7 @@ import Home from './Components/HomeComponent/Home';
 import StayHome from './Components/StayComponent/StayHome';
 import Contact from './Components/ContactComponent/Contact';
 import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
 import FlightHome from './Components/FlightComponent/FlightHome';
 import PackagesHome from './Components/PackagesComponent/PackagesHome';
 import About from './Components/AboutComponent/About';
@@ -29,6 +30,7 @@ function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/awards" element={<Awards />} />
         <Route path="/history" element={<History />} />
+        <Route path="/SignUp" element={<SignUp />} />
       </Routes>
 
       <Footer />
