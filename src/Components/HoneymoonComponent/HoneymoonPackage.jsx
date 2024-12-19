@@ -20,7 +20,7 @@ const packagesData = [
     { id: 8, title: "Kashmir, India", category: "India", duration: "3 Nights, 4 Days", image: kashmir, description: "Snowy beauty.", price: "\u20B922,000", features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Snow" } },
 ];
 
-const TopDest = () => {
+const HoneymoonPackage = () => {
     const [category, setCategory] = useState("All");
     const [region, setRegion] = useState("All");
     const [currentPage, setCurrentPage] = useState(1);
@@ -163,4 +163,4 @@ const TopDest = () => {
     );
 };
 
-export default TopDest;
+export default HoneymoonPackage;

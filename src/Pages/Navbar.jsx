@@ -83,11 +83,14 @@ const Navbar = () => {
       <a href="/StayHome" className="hover:text-gray-400">
         Stays
       </a>
-      <a href="/FlightHome" className="hover:text-gray-400">
-        Flights
+      <a href="/Destinations" className="hover:text-gray-400">
+        Destinations
       </a>
       <a href="/PackagesHome" className="hover:text-gray-400">
         Packages
+      </a>
+      <a href="/HoneymoonHome" className="hover:text-gray-400">
+        Honey Moon
       </a>
       <a href="/Contact" className="hover:text-gray-400">
         Contact
