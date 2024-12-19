@@ -13,9 +13,9 @@ const SignIn = () => {
 
   return (
     <>
-    <div   className="h-screen w-full bg-cover bg-center relative" style={{ backgroundImage: `url(${sigincon})` }}>
+    <div   className="h-screen w-screen bg-cover bg-center relative" style={{ backgroundImage: `url(${sigincon})` }}>
 
-    <div className="flex justify-center items-center mt-4 text-3xl text-red-400 mr-6">
+    <div className="flex justify-center items-center  text-3xl text-red-400 mr-6">
         SignUp
       </div>
       <div className="flex flex-col justify-center">

@@ -4,8 +4,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import offer1 from "../../assets/offer1.png";
 import offer2 from "../../assets/offer2.png";
-import offer3 from "../../assets/offer3.jpeg";
-import offer4 from "../../assets/offer4.jpeg";
+import offer3 from "../../assets/offer5.jpg";
+import offer4 from "../../assets/offer6.jpg";
 
 const OfferCard = ({ image, title, description, linkText, linkHref }) => {
   return (
