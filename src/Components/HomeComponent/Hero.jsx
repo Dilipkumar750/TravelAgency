@@ -16,57 +16,65 @@ const Hero = () => {
   const [startDate, setStartDate] = useState("");
 
   const handleDateChange = (event) => {
-    const selectedDate = event.target.value; // Gets the selected date
+    const selectedDate = event.target.value;
     setStartDate(selectedDate);
-    // Log or use the date as needed
   };
 
   const today = new Date().toISOString().split("T")[0];
 
   return (
     <div
-      className="h-screen w-screen bg-cover bg-center relative"
+      className="h-screen w-full bg-cover bg-center relative"
       style={{ backgroundImage: `url(${home})` }}
     >
       <div className="absolute inset-0 bg-black/30"></div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
-        <div className="absolute top-8 left-8 z-20">
-          <h1 className="text-5xl font-bold mb-6">Explore the World</h1>
-          <p className="text-lg mb-10">Find your next destination and adventure</p>
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            Explore the World
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl">
+            Find your next destination and adventure
+          </p>
         </div>
 
-        <div className="bg-white/50 rounded-lg p-4 shadow-lg flex flex-col md:flex-row items-center gap-4 w-full max-w-5xl">
-          <div className="relative w-full text-gray-500">
+        {/* Search Box */}
+        <div className="bg-white/50 rounded-lg p-4 shadow-lg flex flex-wrap gap-4 items-center justify-center w-full max-w-4xl">
+          {/* Search Input */}
+          <div className="relative flex-grow w-full sm:w-auto">
             <IoSearchSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
             <input
               type="text"
               placeholder="Search destinations, hotels"
-              className="w-full p-3 pl-10 rounded-md border focus:outline-none"
+              className="w-full p-3 pl-10 rounded-md border focus:outline-none text-gray-700"
             />
           </div>
+
+          {/* Check-in Date */}
           <input
             type="date"
-            placeholder="Check-in"
-            className="w-full p-3 rounded-md border focus:outline-none text-gray-400"
+            className="w-full sm:w-auto p-3 rounded-md border focus:outline-none text-gray-700"
             value={startDate}
             onChange={handleDateChange}
             min={today}
           />
+
+          {/* Check-out Date */}
           <input
             type="date"
-            placeholder="Check-out"
-            className="w-full p-3 rounded-md border focus:outline-none text-gray-400"
+            className="w-full sm:w-auto p-3 rounded-md border focus:outline-none text-gray-700"
             value={startDate}
             onChange={handleDateChange}
             min={today}
           />
-          <div className="relative w-full text-black">
-            <IoSearchSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+
+          {/* Room Selector */}
+          <div className="relative w-full sm:w-auto">
             <select
               name="room"
               id="Room"
-              className="w-full p-3 rounded-md border focus:outline-none text-gray-400 ml-3"
+              className="w-full p-3 rounded-md border focus:outline-none text-gray-700"
             >
               <option value="Single">Single</option>
               <option value="couple">Couple</option>
@@ -74,13 +82,16 @@ const Hero = () => {
               <option value="Family">Family</option>
             </select>
           </div>
+
+          {/* Search Button */}
           <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md flex items-center gap-2">
             <FaSearch />
             Search
           </button>
         </div>
 
-        <div className="mt-16 flex sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
+        {/* Categories Section */}
+        <div className="mt-10 grid grid-cols-5 sm:grid-cols-3 md:grid-cols-10 gap-6 text-center">
           <CategoryItem icon={<FaUmbrellaBeach />} label="Beaches" />
           <CategoryItem icon={<GiDesert />} label="Deserts" />
           <CategoryItem icon={<FaMountain />} label="Mountains" />
@@ -99,11 +110,10 @@ const Hero = () => {
   );
 };
 
-// Component for Categories
 const CategoryItem = ({ icon, label }) => (
   <div className="flex flex-col items-center text-white hover:text-blue-500 transition duration-300">
     <div className="p-4 rounded-full text-3xl mb-2">{icon}</div>
-    <span className="text-lg">{label}</span>
+    <span className="text-sm sm:text-base">{label}</span>
   </div>
 );
 
@@ -111,36 +121,34 @@ const EnquiryModal = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    // Check if the form has been dismissed or submitted before
     const isDismissed = localStorage.getItem("enquiryDismissed");
     const isSubmitted = localStorage.getItem("enquirySubmitted");
 
-    // Only set the timer if the form has not been dismissed or submitted
     if (!isDismissed && !isSubmitted) {
       const timer = setTimeout(() => {
         setShowModal(true);
-      }, 3000); // 30 seconds
+      }, 3000);
 
-      return () => clearTimeout(timer); // Clean up the timer
+      return () => clearTimeout(timer);
     }
   }, []);
 
   const handleDismiss = () => {
     setShowModal(false);
-    localStorage.setItem("enquiryDismissed", "true"); // Mark as dismissed
+    localStorage.setItem("enquiryDismissed", "true");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowModal(false);
-    localStorage.setItem("enquirySubmitted", "true"); // Mark as submitted
+    localStorage.setItem("enquirySubmitted", "true");
   };
 
   return (
     <div>
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-96 sm:w-80">
             <h2 className="text-xl font-bold text-gray-800 mb-4">Enquiry Form</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>

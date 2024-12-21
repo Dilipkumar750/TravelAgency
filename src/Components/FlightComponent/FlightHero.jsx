@@ -25,6 +25,9 @@ const FlightHero = () => {
 
   const handleDepartureDateChange = (event) => {
     setDepartureDate(event.target.value);
+    if (arrivalDate && event.target.value > arrivalDate) {
+      setArrivalDate('');
+    }
   };
 
   const handleArrivalDateChange = (event) => {
@@ -41,16 +44,21 @@ const FlightHero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
 
-      {/* Top-left H1 */}
-      <div className="absolute top-8 left-8 z-20">
-        <h1 className="text-5xl font-bold text-white">Fly Anywhere, Anytime.</h1>
+      {/* Header */}
+      <div className="absolute top-1/4 w-full text-center z-20 px-4 mb-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+          Fly Anywhere, Anytime.
+        </h1>
+        <p className="text-lg sm:text-xl md:text-2xl text-white mt-2">
+          Your journey starts here.
+        </p>
       </div>
 
       {/* Search and Flight Info */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
         {/* Search Bar */}
-        <div className="bg-white/80 rounded-lg p-4 shadow-lg flex flex-col md:flex-row items-center gap-4 w-full max-w-5xl">
-          {/* Search Flight */}
+        <div className="bg-white/80 rounded-lg p-6 shadow-lg flex flex-col md:flex-row items-center gap-4 w-full max-w-5xl mt-20">
+          {/* Search Flights */}
           <div className="relative w-full text-gray-500">
             <IoSearchSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
             <input
@@ -106,7 +114,7 @@ const FlightHero = () => {
         </div>
 
         {/* Categories */}
-        <div className="mt-16 flex sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
+        <div className="mt-16 grid grid-cols-5 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-6 text-center">
           <CategoryItem icon={<FaUmbrellaBeach />} label="Beaches" />
           <CategoryItem icon={<GiDesert />} label="Deserts" />
           <CategoryItem icon={<FaMountain />} label="Mountains" />
@@ -127,7 +135,7 @@ const FlightHero = () => {
 const CategoryItem = ({ icon, label }) => (
   <div className="flex flex-col items-center text-white hover:text-blue-500 transition duration-300">
     <div className="p-4 rounded-full text-3xl mb-2">{icon}</div>
-    <span className="text-lg">{label}</span>
+    <span className="text-sm sm:text-base">{label}</span>
   </div>
 );
 

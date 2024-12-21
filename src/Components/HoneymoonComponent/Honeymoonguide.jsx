@@ -30,12 +30,12 @@ const honeymoonPackages = [
 const HoneymoonGuide = () => {
   return (
     <div>
-      <h1 className="text-center text-4xl font-bold mt-8 mb-8">
+      <h1 className="text-center text-4xl sm:text-5xl font-bold mt-8 mb-8">
         Explore Our Honeymoon Packages
       </h1>
 
       {/* Swiper Carousel */}
-      <div className="max-w-screen-xl mx-auto p-5">
+      <div className="max-w-screen-xl mx-auto p-4 sm:p-5">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={20}
@@ -46,7 +46,8 @@ const HoneymoonGuide = () => {
           breakpoints={{
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 }
+            1024: { slidesPerView: 4 },
+            1280: { slidesPerView: 4 } // Keeps 4 slides even on large screens
           }}
           className="rounded-2xl"
         >
@@ -56,11 +57,11 @@ const HoneymoonGuide = () => {
                 <img
                   src={packageItem.image}
                   alt={packageItem.name}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-64 sm:h-72 md:h-80 lg:h-96 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute bottom-4 left-4 z-10 text-white bg-black bg-opacity-50 p-2 rounded-lg">
-                  <h3 className="font-bold text-lg">{packageItem.name}</h3>
-                  <p className="text-sm">{packageItem.details}</p>
+                  <h3 className="font-bold text-sm sm:text-lg">{packageItem.name}</h3>
+                  <p className="text-xs sm:text-sm">{packageItem.details}</p>
                 </div>
               </div>
             </SwiperSlide>

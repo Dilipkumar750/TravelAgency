@@ -43,15 +43,15 @@ const Recent = () => {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-6 text-center">Recent Viewed</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center">Recently Viewed</h2>
 
-      <div className="flex max-w-screen-lg mx-auto p-5">
+      <div className="flex flex-col sm:flex-row max-w-screen-lg mx-auto p-5 gap-6">
         {/* Swiper Section occupying 50% of the screen */}
-        <div className="w-1/2 pr-2">
+        <div className="w-full sm:w-1/2">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={20}
-            slidesPerView={2}
+            slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -89,10 +89,10 @@ const Recent = () => {
         </div>
 
         {/* Contact/Booking Page Section occupying 50% */}
-        <div className="w-1/2 bg-gray-200 p-6 flex items-center justify-center">
+        <div className="w-full sm:w-1/2 bg-gray-200 p-6 flex items-center justify-center">
           <div>
             <h2 className="text-2xl font-bold mb-4 text-center">Contact Us</h2>
-            
+
             {/* Contact Information */}
             <p>📞 Call us at +91 123-456-7890</p>
             <p>📧 Email: contact@beachpackages.com</p>
@@ -123,7 +123,6 @@ const Recent = () => {
             </form>
           </div>
         </div>
-
       </div>
     </div>
   );

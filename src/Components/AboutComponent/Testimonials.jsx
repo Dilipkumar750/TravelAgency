@@ -31,19 +31,19 @@ const testimonialsData = [
     images: [honey2, honey3, honey4]
   },
   {
-    id: 1,
+    id: 4,
     name: "John Doe",
     text: "Amazing product!",
     images: [beach1, beach2, beach3]
   },
   {
-    id: 2,
+    id: 5,
     name: "Jane Smith",
     text: "Excellent service!",
     images: [beach4, beach5, honey1]
   },
   {
-    id: 3,
+    id: 6,
     name: "Alice Brown",
     text: "Seamless experience!",
     images: [honey2, honey3, honey4]
@@ -66,9 +66,9 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       {/* Left Side: Testimonial Grid */}
-      <div className="w-1/2 p-6 grid grid-cols-3 gap-6">
+      <div className="w-full grid sm:grid-cols-3 gap-10 sm:w-1/2 lg:w-1/3 xl:w-full p-4">
         {testimonialsData.map((review) => (
           <div
             key={review.id}
@@ -92,9 +92,9 @@ const Testimonials = () => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        className="fixed right-0 top-0 bottom-0 w-full md:w-1/2 bg-white p-8 overflow-y-auto"
+        className="fixed inset-0 bg-white p-4 sm:p-8 overflow-y-auto sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 mx-auto"
+        contentLabel="Review Details"
       >
-
         {selectedReview && (
           <>
             <button
@@ -106,7 +106,7 @@ const Testimonials = () => {
             <h2 className="text-2xl font-bold mb-2">{selectedReview.name}</h2>
             <p className="mb-4 text-gray-600">{selectedReview.text}</p>
 
-            <div className="flex gap-4 mt-4">
+            <div className="flex gap-4 mt-4 overflow-x-auto">
               {selectedReview.images.map((url, index) => (
                 <img
                   key={index}
