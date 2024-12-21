@@ -43,11 +43,11 @@ const Connection = () => {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 1000, disableOnInteraction: false }} // Autoplay settings
+          autoplay={{ delay: 2000, disableOnInteraction: false }} // Autoplay settings
           breakpoints={{
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 }
+            1024: { slidesPerView: 4 },
           }}
           className="rounded-2xl"
         >
@@ -57,7 +57,7 @@ const Connection = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute bottom-4 left-4 z-10 text-white bg-black bg-opacity-50 p-2 rounded-lg">
                   <h3 className="font-bold text-lg">{item.name}</h3>

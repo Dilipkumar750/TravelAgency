@@ -39,15 +39,20 @@ const StayHero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
 
-      {/* Top-left H1 */}
-      <div className="absolute top-8 left-8 z-20">
-        <h1 className="text-5xl font-bold text-white">The whole world awaits.</h1>
+      {/* Top Section */}
+      <div className="absolute top-1/4 w-full text-center z-20 px-4 mb-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10">
+          Explore the World
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl text-white">
+          Find your next destination and adventure
+        </p>
       </div>
 
       {/* Search and Categories */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
         {/* Search Bar */}
-        <div className="bg-white/80 rounded-lg p-4 shadow-lg flex flex-col md:flex-row items-center gap-4 w-full max-w-5xl">
+        <div className="bg-white/80 rounded-lg p-4 shadow-lg flex flex-col md:flex-row items-center mt-40 gap-4 w-full max-w-screen-lg">
           {/* Search Destination */}
           <div className="relative w-full text-gray-500">
             <IoSearchSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
@@ -100,7 +105,7 @@ const StayHero = () => {
         </div>
 
         {/* Categories */}
-        <div className="mt-16 flex sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
+        <div className="mt-16 grid grid-cols-5 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-6 text-center">
           <CategoryItem icon={<FaUmbrellaBeach />} label="Beaches" />
           <CategoryItem icon={<GiDesert />} label="Deserts" />
           <CategoryItem icon={<FaMountain />} label="Mountains" />
@@ -121,7 +126,7 @@ const StayHero = () => {
 const CategoryItem = ({ icon, label }) => (
   <div className="flex flex-col items-center text-white hover:text-blue-500 transition duration-300">
     <div className="p-4 rounded-full text-3xl mb-2">{icon}</div>
-    <span className="text-lg">{label}</span>
+    <span className="text-sm sm:text-lg">{label}</span>
   </div>
 );
 

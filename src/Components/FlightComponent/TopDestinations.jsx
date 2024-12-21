@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPlane, FaHotel } from "react-icons/fa";
+import { FaPlane, FaHotel, FaBars, FaTimes } from "react-icons/fa";
 import darjeeling from "../../assets/darjeeling.jpeg";
 import goa from "../../assets/goa.jpeg";
 import bali2 from "../../assets/bali2.jpeg";
@@ -24,6 +24,7 @@ const TopDest = () => {
     const [category, setCategory] = useState("All");
     const [region, setRegion] = useState("All");
     const [currentPage, setCurrentPage] = useState(1);
+    const [isFilterVisible, setFilterVisible] = useState(false); // State for filter visibility
     const itemsPerPage = 8;
 
     const filteredPackages = packagesData.filter((pkg) => {
@@ -47,9 +48,9 @@ const TopDest = () => {
     const handlePageChange = (page) => setCurrentPage(page);
 
     return (
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
             {/* Main Section */}
-            <div className="w-3/4 p-6 overflow-y-auto">
+            <div className="w-full md:w-3/4 p-6 overflow-y-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {paginatedPackages.map((card) => (
                         <div
@@ -114,7 +115,13 @@ const TopDest = () => {
             </div>
 
             {/* Filters Section */}
-            <div className="w-1/4 h-screen sticky top-0 p-6 bg-gray-100">
+            <div className={`w-full md:w-1/4 h-screen bg-gray-100 p-6 md:block ${isFilterVisible ? "block" : "hidden md:block"}`}>
+                <button
+                    className="md:hidden absolute top-4 right-4"
+                    onClick={() => setFilterVisible(!isFilterVisible)}
+                >
+                    {isFilterVisible ? <FaTimes size={24} /> : <FaBars size={24} />}
+                </button>
                 <h2 className="text-lg font-semibold mb-4">Filters</h2>
                 {/* Category Filter */}
                 <div className="mb-6">

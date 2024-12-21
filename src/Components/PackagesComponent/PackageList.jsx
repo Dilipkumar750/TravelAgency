@@ -38,14 +38,14 @@ const PackageList = () => {
   };
 
   return (
-    <div className="p-10">
+    <div className="p-4 sm:p-6 lg:p-10">
       {/* Toggle Buttons */}
-      <div className="flex justify-center mb-6 space-x-4">
+      <div className="flex justify-center mb-6 space-x-2 sm:space-x-4">
         {["All", "India", "International"].map((btn) => (
           <button
             key={btn}
             onClick={() => handleCategoryClick(btn)}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 rounded-full text-sm font-semibold transition ${
               category === btn
                 ? "bg-blue-500 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -57,25 +57,25 @@ const PackageList = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {cardsToShow.map((card) => (
           <div
             key={card.id}
             className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer"
           >
             <img
-              className="w-full h-40 object-cover"
+              className="w-full h-40 sm:h-48 object-cover"
               src={card.image}
               alt={card.title}
             />
             <div className="p-3 bg-white">
-              <h3 className="text-base font-medium mb-1">{card.title}</h3>
-              <p className="text-red-500 text-sm font-semibold">
+              <h3 className="text-sm sm:text-base font-medium mb-1">{card.title}</h3>
+              <p className="text-red-500 text-xs sm:text-sm font-semibold">
                 {card.duration}
               </p>
               <p className="text-gray-600 text-xs mb-3">{card.description}</p>
 
-              <div className="flex justify-between text-gray-600 text-xs mb-3">
+              <div className="flex justify-between text-gray-600 text-xs sm:text-sm mb-3">
                 <div className="flex items-center">
                   <FaPlane className="text-blue-500 mr-1" />
                   {card.features.flights} Flights
@@ -86,7 +86,7 @@ const PackageList = () => {
                 </div>
               </div>
 
-              <div className="text-blue-500 text-sm font-bold mb-3">
+              <div className="text-blue-500 text-xs sm:text-sm font-bold mb-3">
                 {card.price}
               </div>
 
