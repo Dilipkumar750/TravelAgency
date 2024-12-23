@@ -16,9 +16,10 @@ const TravelApp = () => {
 
   return (
     <div
-      className="h-screen w-screen bg-cover bg-center"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
+    className="h-screen w-screen bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: `url(${bgImage})` }}
+  >
+  
       <div className="h-full w-full flex items-center justify-center">
         {/* Main content area */}
         <div className="h-auto w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 max-w-4xl bg-black bg-opacity-50 rounded-2xl mx-4 p-6 flex flex-col justify-center items-start">
@@ -69,9 +70,9 @@ const TravelApp = () => {
         </div>
 
         {/* Right Side Image */}
-        <div className="hidden md:block md:w-1/2 lg:w-1/3 xl:w-1/4">
+        {/* <div className="hidden md:block md:w-1/2 lg:w-1/3 xl:w-1/4">
           <img src={rightImage} alt="Travel Image" className="h-64 w-64 sm:h-80 sm:w-80 md:h-96 md:w-96 object-cover mx-auto" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
