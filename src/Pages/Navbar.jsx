@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.jpeg";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="text-black flex justify-between items-center p-4 bg-transparent sticky top-0 z-50 font-blacker_pro_display_condensed, sans-serif, sans-serif;">
+    <nav className="text-black px-48 bg-white/90 flex justify-between items-center p-4  sticky top-0 z-50 font-blacker_pro_display_condensed, sans-serif, sans-serif;">
       {/* Logo or Branding */}
       <img src={logo} alt="" className="w-40" />
 
@@ -107,7 +107,7 @@ const Navbar = () => {
           <a href="/PackagesHome" className="hover:text-gray-800">Packages</a>
           <a href="/HoneymoonHome" className="hover:text-gray-800">Honey Moon</a>
           <a href="/Contact" className="hover:text-gray-800">Contact</a>
-          <a href="/SignIn" className="hover:text-gray-800">Sign In</a>
+          {/* <a href="/SignIn" className="hover:text-gray-800">Sign In</a> */}
         </div>
       )}
 
@@ -175,13 +175,15 @@ const Navbar = () => {
         </div>
 
         {/* Other Navigation Links */}
-        <a href="/StayHome" className="hover:text-gray-800">Stays</a>
-        <a href="/Destinations" className="hover:text-gray-800">Destinations</a>
-        <a href="/PackagesHome" className="hover:text-gray-800">Packages</a>
-        <a href="/HoneymoonHome" className="hover:text-gray-800">Honey Moon</a>
-        <a href="/Contact" className="hover:text-gray-800">Contact</a>
-        <a href="/SignIn" className="hover:text-gray-800">Sign In</a>
-      </div>
+     
+        <a href="/StayHome" className="hover:text-gray-800 font-bold">Stays</a>
+        <a href="/Destinations" className="hover:text-gray-800 font-bold">Destinations</a>
+        <a href="/PackagesHome" className="hover:text-gray-800 font-bold">Packages</a>
+        <a href="/HoneymoonHome" className="hover:text-gray-800 font-bold">Honey Moon</a>
+        <a href="/Contact" className="hover:text-gray-800 font-bold">Contact</a>
+        </div>
+        {/* <a href="/SignIn" className="hover:text-gray-800">Sign In</a> */}
+    
     </nav>
   );
 };

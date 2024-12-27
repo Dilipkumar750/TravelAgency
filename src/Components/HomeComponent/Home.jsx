@@ -8,6 +8,8 @@ import Search from './Search'
 import Connection from './Connection'
 import Test from './Test'
 import Visafree from './visafree'
+import TestimonialSlider from './TestimonialSlider'
+import TestimonialCarousel from './Test'
 
 const Home = () => {
   return (
@@ -18,9 +20,10 @@ const Home = () => {
       <Type/>
       <Visafree/>
       <Travel/>
-      <Test/>
+      {/* <Test/> */}
+      <TestimonialSlider/>
       <Connection/>
-      <Search/>
+      {/* <Search/> */}
     </div>
   )
 }

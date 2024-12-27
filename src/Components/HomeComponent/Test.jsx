@@ -102,6 +102,9 @@ const TestimonialCarousel = () => {
           animation: floating 3s ease-in-out infinite;
         }
       `}</style>
+
+
+      
     </>
   );
 };
