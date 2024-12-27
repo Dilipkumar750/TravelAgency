@@ -42,23 +42,22 @@ const Popular = () => {
         {popularCategories.map((category, index) => (
           <div
             key={category.id}
-            className={`rounded-2xl overflow-hidden shadow-lg relative ${
+            className={`rounded-2xl overflow-hidden shadow-lg ${
               index === 2 ? "row-span-2 col-span-1" : "h-64"
             }`}
           >
-            {/* Image with Gradient Effect */}
-            <img
-              src={category.image}
-              alt={category.title}
-              className="w-full h-64 object-fit"
-            />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-
-            {/* Text Overlay */}
-            <div className="absolute bottom-4 left-4 z-10 text-white">
-              <h3 className="text-2xl font-bold">{category.title}</h3>
-              <p className="mt-1 text-sm">
+            {/* Image */}
+            <div className="w-full h-full">
+              <img
+                src={category.image}
+                alt={category.title}
+                className="w-full h-full object-fit"
+              />
+            </div>
+            {/* Title Below the Image */}
+            <div className="text-center mt-4">
+              <h3 className="text-xl font-bold">{category.title}</h3>
+              <p className="text-sm text-gray-600">
                 Discover the best experience for {category.title}
               </p>
             </div>

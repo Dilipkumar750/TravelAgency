@@ -73,15 +73,16 @@ function App() {
       <Footer />
 
       {/* Sticky Bottom Section */}
-      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-11/12 sm:w-1/2 bg-black/70 text-center py-2 shadow-lg rounded-lg flex items-center justify-between gap-2 z-50 p-6 sm:p-6">
-        <p className="text-base m-0 text-white">Want to personalize your own experience?</p>
+      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-11/12 sm:w-1/2 bg-black/70 text-center py-1 shadow-lg rounded-lg flex items-center justify-between gap-2 z-50 p-4 sm:p-4">
+        <p className="text-sm m-0 text-white">Want to personalize your own experience?</p>
         <button
-          className="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          className="px-3 py-1 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
           onClick={handleOpenModal}
         >
           Start Planning
         </button>
       </div>
+
 
       {/* Modal */}
       {isModalOpen && (

@@ -48,7 +48,7 @@ const Footer = () => {
               { icon: <FaInstagram size={36} />, link: 'https://www.instagram.com' },
               { icon: <FaTwitter size={36} />, link: 'https://www.twitter.com' },
               { icon: <FaYoutube size={36} />, link: 'https://www.youtube.com' },
-              { icon: <FaTripadvisor size={36} />, link: 'https://www.tripadvisor.com' }
+              // { icon: <FaTripadvisor size={36} />, link: 'https://www.tripadvisor.com' }
             ].map((social, idx) => (
               <a
                 key={idx}
