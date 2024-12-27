@@ -32,7 +32,7 @@ const Connection = () => {
   return (
     <div>
       <h1 className="text-center text-4xl font-bold mt-16 mb-8">
-        Connect with Travelers Worldwide
+        Connect with Honeymoon packages in Worldwide
       </h1>
 
       {/* Swiper Carousel */}

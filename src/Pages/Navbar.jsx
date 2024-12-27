@@ -114,12 +114,12 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <div className="hidden lg:flex gap-10">
         {/* Home */}
-        <a href="/" className="hover:text-gray-800">Home</a>
+        <a href="/" className="hover:text-gray-800 font-bold">Home</a>
 
         {/* About Us with Dropdown */}
         <div className="relative">
           <span
-            className="cursor-pointer hover:text-gray-800"
+            className="cursor-pointer hover:text-gray-800 font-bold"
             onClick={handleAboutClick}
           >
             About Us
