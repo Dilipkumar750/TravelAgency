@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {
   FaSearch,
-  FaUmbrellaBeach,
-  FaSkiing,
-  FaCampground,
-  FaMountain,
-  FaCity,
-  FaShip,
+  FaStar,
+  FaPassport,
+  FaUserClock,
+  FaMapMarkedAlt,
 } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
-import { GiDesert, GiCastle, GiPalmTree, GiFarmTractor } from "react-icons/gi";
 import home from "../../assets/herov.mp4";
 
 const Hero = () => {
@@ -42,7 +39,7 @@ const Hero = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Explore the World
           </h1>
-          <p className="text-base sm:text-lg md:text-xl">
+          <p className="text-4xl font-lovers text-[#63c5b0]">
             Find your next destination and adventure
           </p>
         </div>
@@ -57,56 +54,70 @@ const Hero = () => {
               className="w-full p-3 pl-10 rounded-full border outline-[#63c5b0] text-[#63c5b0]"
             />
           </div>
-         
-        
-         
           <button className="bg-[#52ddbf] hover:bg-[#92bab1] text-black px-6 py-3 rounded-full flex items-center gap-2">
             <FaSearch />
             Search
           </button>
         </div>
-
-        {/* Categories Section */}
-       
       </div>
 
+      {/* Trust Media Section */}
+      <div className="bg-black px-24 py-4 flex items-center justify-around flex-wrap text-white">
+        <div className="flex items-center gap-4">
+          <FaStar className="text-2xl text-[#00ffc8]" />
+          <span className="text-sm font-semibold">4.6 Rated</span>
+        </div>
+        <div className="flex  items-center gap-4">
+          <FaMapMarkedAlt className="text-2xl text-[#00ffc8]" />
+          <span className="text-sm font-semibold">100% Customised Trips</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <FaPassport className="text-2xl text-[#00ffc8]" />
+          <span className="text-sm font-semibold">95% Visa Success Rate</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <FaUserClock className="text-2xl text-[#00ffc8]" />
+          <span className="text-sm font-semibold">24x7 Concierge</span>
+        </div>
+      </div>
+
+      {/* Enquiry Modal */}
       <EnquiryModal />
     </div>
   );
 };
 
-const CategoryItem = ({ icon, label }) => (
-  <div className="flex flex-col items-center text-white hover:text-blue-500 transition duration-300">
-    <div className="p-4 rounded-full text-3xl mb-2">{icon}</div>
-    <span className="text-sm sm:text-base">{label}</span>
-  </div>
-);
-
 const EnquiryModal = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const isDismissed = localStorage.getItem("enquiryDismissed");
-    const isSubmitted = localStorage.getItem("enquirySubmitted");
+    if (typeof localStorage !== "undefined") {
+      const isDismissed = localStorage.getItem("enquiryDismissed");
+      const isSubmitted = localStorage.getItem("enquirySubmitted");
 
-    if (!isDismissed && !isSubmitted) {
-      const timer = setTimeout(() => {
-        setShowModal(true);
-      }, 3000);
+      if (!isDismissed && !isSubmitted) {
+        const timer = setTimeout(() => {
+          setShowModal(true);
+        }, 3000);
 
-      return () => clearTimeout(timer);
+        return () => clearTimeout(timer);
+      }
     }
   }, []);
 
   const handleDismiss = () => {
     setShowModal(false);
-    localStorage.setItem("enquiryDismissed", "true");
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("enquiryDismissed", "true");
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowModal(false);
-    localStorage.setItem("enquirySubmitted", "true");
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("enquirySubmitted", "true");
+    }
   };
 
   return (

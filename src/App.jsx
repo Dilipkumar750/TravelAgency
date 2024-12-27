@@ -17,6 +17,7 @@ import TermsAndConditions from './Components/AboutComponent/TermsAndConditions';
 import PrivacyPolicy from './Components/AboutComponent/PrivacyPolicy';
 import Swal from "sweetalert2";
 import HoneymoonHome from './Components/HoneymoonComponent/HoneymoonHome';
+import TopHeader from './Pages/topHeader';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,8 +52,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <TopHeader />
       <Navbar />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/StayHome" element={<StayHome />} />
@@ -87,7 +88,7 @@ function App() {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-4 sm:p-20">
-          <div className="relative bg-gradient-to-r from-blue-200 to-blue-400 rounded-xl shadow-2xl p-8 w-full max-w-md transform transition-transform scale-100">
+          <div className="relative bg-white rounded-xl shadow-2xl p-8 w-full max-w-md transform transition-transform scale-100">
             {/* Close Icon */}
             <button
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
@@ -115,8 +116,30 @@ function App() {
               />
             </div>
 
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">Phone</label>
+              <input
+                id="name"
+                type="text"
+                className="mt-2 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
+                placeholder="Enter your name"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">Email</label>
+              <input
+                id="name"
+                type="mail"
+                className="mt-2 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
+                placeholder="Enter your name"
+              />
+            </div>
+
+
+
             {/* Email and Phone in Flex Layout */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-4">
+            {/* <div className="flex flex-col sm:flex-row gap-4 mb-4">
               {!isSignedIn && (
                 <div className="w-full sm:w-1/2">
                   <label className="block text-sm font-medium text-gray-700">Email</label>
@@ -137,11 +160,11 @@ function App() {
                   placeholder="Phone"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* Travel Start Place */}
             <div className="flex flex-col sm:flex-row gap-5">
-              <div className="mb-4 w-full sm:w-1/2">
+              {/* <div className="mb-4 w-full sm:w-1/2">
                 <label className="block text-sm font-medium text-gray-700">Travel Start Place</label>
                 <input
                   id="startPlace"
@@ -149,10 +172,10 @@ function App() {
                   className="mt-2 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
                   placeholder="Start place"
                 />
-              </div>
+              </div> */}
 
               {/* Destination */}
-              <div className="mb-4 w-full sm:w-1/2">
+              {/* <div className="mb-4 w-full sm:w-1/2">
                 <label className="block text-sm font-medium text-gray-700">Destination</label>
                 <input
                   id="destination"
@@ -160,7 +183,7 @@ function App() {
                   className="mt-2 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
                   placeholder="Destination"
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* Number of Persons */}
@@ -176,7 +199,7 @@ function App() {
             </div>
 
             {/* Travel Dates */}
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
               <div className="flex flex-col sm:flex-row gap-4">
                 <input
@@ -196,7 +219,7 @@ function App() {
                   onChange={handleEndDateChange}
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="flex justify-center">
               <button

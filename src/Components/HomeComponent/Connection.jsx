@@ -31,7 +31,7 @@ const contentItems = [
 const Connection = () => {
   return (
     <div>
-      <h1 className="text-center text-4xl font-bold mt-8 mb-8">
+      <h1 className="text-center text-4xl font-bold mt-16 mb-8">
         Connect with Travelers Worldwide
       </h1>
 

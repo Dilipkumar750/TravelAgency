@@ -26,14 +26,14 @@ const StarRating = ({ rating }) => {
 
 const OfferCard = ({ image, title, description, detail, rating, linkText, linkHref }) => {
   return (
-    <div className="rounded-xl shadow-lg overflow-hidden bg-white flex flex-col md:flex-row mb-6 transform transition-all hover:scale-105 hover:shadow-xl h-[260px]">
+    <div className="rounded-xl shadow-2xl overflow-hidden bg-white flex flex-col md:flex-row mb-6 transform transition-all hover:scale-105 hover:shadow-xl h-[260px] border-2 ">
       {/* Image */}
       <img
         className="h-48 w-full object-cover md:w-48 md:h-full"
         src={image}
         alt={title}
       />
-      <div className="p-4 flex flex-col justify-between flex-1 bg-gray-100">
+      <div className="p-4 flex flex-col justify-between flex-1 bg-white">
         <div className="uppercase tracking-wide text-indigo-500 font-bold text-lg">
           {title}
         </div>
@@ -44,7 +44,7 @@ const OfferCard = ({ image, title, description, detail, rating, linkText, linkHr
         <StarRating rating={rating} />
         <a
           href={linkHref}
-          className="mt-4 bg-blue-400 text-white py-2 rounded-lg text-center hover:bg-indigo-700 transition"
+          className="mt-4  text-white py-2 rounded-lg text-center bg-indigo-700 transition"
         >
           {linkText}
         </a>
@@ -55,8 +55,8 @@ const OfferCard = ({ image, title, description, detail, rating, linkText, linkHr
 
 const Offers = () => {
   return (
-    <div className="max-w-1/2 mx-auto p-5">
-      <h2 className="text-3xl font-extrabold mb-6 text-center text-gray-900">
+    <div className="max-w-[1400px] mx-20 p-5">
+      <h2 className="text-3xl font-extrabold mb-16 text-center text-black">
         🌟 Exclusive Offers 🌟
       </h2>
 
@@ -93,7 +93,7 @@ const Offers = () => {
         <SwiperSlide>
           <OfferCard
             image={offer2}
-            title="International Hotels"
+            title="Hotels"
             description="Plan your perfect getaway with exclusive discounts at top international destinations."
             detail="Includes free breakfast at select hotels."
             rating={5}
