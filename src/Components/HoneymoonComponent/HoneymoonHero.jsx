@@ -33,7 +33,7 @@ const HoneymoonHero = () => {
 
   return (
     <div
-      className="h-screen w-screen bg-cover bg-center relative object-fit"
+      className="h-[450px] w-screen bg-cover bg-center relative object-fit"
       style={{ backgroundImage: `url(${home})` }}
     >
       {/* Overlay */}
@@ -98,18 +98,7 @@ const HoneymoonHero = () => {
         </div>
 
         {/* Categories */}
-        <div className="mt-16 flex sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
-          <CategoryItem icon={<FaUmbrellaBeach />} label="Beaches" />
-          <CategoryItem icon={<GiDesert />} label="Deserts" />
-          <CategoryItem icon={<FaMountain />} label="Mountains" />
-          <CategoryItem icon={<FaCity />} label="Iconic Cities" />
-          <CategoryItem icon={<FaShip />} label="Houseboats" />
-          <CategoryItem icon={<GiFarmTractor />} label="Countryside" />
-          <CategoryItem icon={<FaCampground />} label="Camping" />
-          <CategoryItem icon={<GiCastle />} label="Castles" />
-          <CategoryItem icon={<FaSkiing />} label="Skiing" />
-          <CategoryItem icon={<GiPalmTree />} label="Tropical" />
-        </div>
+       
       </div>
     </div>
   );
