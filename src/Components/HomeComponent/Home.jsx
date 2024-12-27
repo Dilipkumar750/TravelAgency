@@ -7,6 +7,7 @@ import Travel from './Travel'
 import Search from './Search'
 import Connection from './Connection'
 import Test from './Test'
+import Visafree from './visafree'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Top/>
       <Offers/>
       <Type/>
+      <Visafree/>
       <Travel/>
       <Test/>
       <Connection/>

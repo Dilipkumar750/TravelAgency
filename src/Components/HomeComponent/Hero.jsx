@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import { GiDesert, GiCastle, GiPalmTree, GiFarmTractor } from "react-icons/gi";
-import home from "../../assets/home.gif";
+import home from "../../assets/herov.mp4";
 
 const Hero = () => {
   const [startDate, setStartDate] = useState("");
@@ -23,12 +23,20 @@ const Hero = () => {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div
-      className="h-screen w-full bg-cover bg-center relative"
-      style={{ backgroundImage: `url(${home})` }}
-    >
+    <div className="h-[450px] w-full relative z-10">
+      {/* Background Video */}
+      <video
+        src={home}
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover"
+      ></video>
+
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
 
+      {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
@@ -40,69 +48,26 @@ const Hero = () => {
         </div>
 
         {/* Search Box */}
-        <div className="bg-white/50 rounded-lg p-4 shadow-lg flex flex-wrap gap-4 items-center justify-center w-full max-w-4xl">
-          {/* Search Input */}
+        <div className="bg-white/50 rounded-full p-2 shadow-lg flex flex-wrap gap-4 items-center justify-center w-full max-w-3xl">
           <div className="relative flex-grow w-full sm:w-auto">
-            <IoSearchSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+            <IoSearchSharp className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#63c5b0]" />
             <input
               type="text"
               placeholder="Search destinations, hotels"
-              className="w-full p-3 pl-10 rounded-md border focus:outline-none text-gray-700"
+              className="w-full p-3 pl-10 rounded-full border outline-[#63c5b0] text-[#63c5b0]"
             />
           </div>
-
-          {/* Check-in Date */}
-          <input
-            type="date"
-            className="w-full sm:w-auto p-3 rounded-md border focus:outline-none text-gray-700"
-            value={startDate}
-            onChange={handleDateChange}
-            min={today}
-          />
-
-          {/* Check-out Date */}
-          <input
-            type="date"
-            className="w-full sm:w-auto p-3 rounded-md border focus:outline-none text-gray-700"
-            value={startDate}
-            onChange={handleDateChange}
-            min={today}
-          />
-
-          {/* Room Selector */}
-          <div className="relative w-full sm:w-auto">
-            <select
-              name="room"
-              id="Room"
-              className="w-full p-3 rounded-md border focus:outline-none text-gray-700"
-            >
-              <option value="Single">Single</option>
-              <option value="couple">Couple</option>
-              <option value="group">Group</option>
-              <option value="Family">Family</option>
-            </select>
-          </div>
-
-          {/* Search Button */}
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md flex items-center gap-2">
+         
+        
+         
+          <button className="bg-[#52ddbf] hover:bg-[#92bab1] text-black px-6 py-3 rounded-full flex items-center gap-2">
             <FaSearch />
             Search
           </button>
         </div>
 
         {/* Categories Section */}
-        <div className="mt-10 grid grid-cols-5 sm:grid-cols-3 md:grid-cols-10 gap-6 text-center">
-          <CategoryItem icon={<FaUmbrellaBeach />} label="Beaches" />
-          <CategoryItem icon={<GiDesert />} label="Deserts" />
-          <CategoryItem icon={<FaMountain />} label="Mountains" />
-          <CategoryItem icon={<FaCity />} label="Iconic Cities" />
-          <CategoryItem icon={<FaShip />} label="Houseboats" />
-          <CategoryItem icon={<GiFarmTractor />} label="Countryside" />
-          <CategoryItem icon={<FaCampground />} label="Camping" />
-          <CategoryItem icon={<GiCastle />} label="Castles" />
-          <CategoryItem icon={<FaSkiing />} label="Skiing" />
-          <CategoryItem icon={<GiPalmTree />} label="Tropical" />
-        </div>
+       
       </div>
 
       <EnquiryModal />

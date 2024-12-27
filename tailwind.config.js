@@ -8,4 +8,13 @@ export default {
     extend: {},
   },
   plugins: [],
+  colors: {
+    'battleship-gray': '#5b5b5b', // Replace with your actual hex code
+    'granite-gray': '#2f2f2f',
+    'viridian-green': '#4b9e72',
+    'white-1': '#ffffff',
+  },
+  fontSize: {
+    'fs-6': '1rem',
+}
 }

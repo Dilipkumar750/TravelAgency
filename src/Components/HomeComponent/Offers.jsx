@@ -55,7 +55,7 @@ const OfferCard = ({ image, title, description, detail, rating, linkText, linkHr
 
 const Offers = () => {
   return (
-    <div className="max-w-screen-2xl mx-auto p-5">
+    <div className="max-w-1/2 mx-auto p-5">
       <h2 className="text-3xl font-extrabold mb-6 text-center text-gray-900">
         🌟 Exclusive Offers 🌟
       </h2>

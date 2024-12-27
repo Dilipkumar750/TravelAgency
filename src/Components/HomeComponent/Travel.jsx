@@ -4,7 +4,7 @@ import image from "../../assets/image.png";
 const Travel = () => {
   return (
     <div
-      className="h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[600px] w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/2 mx-auto bg-cover bg-center rounded-2xl overflow-hidden"
+      className="h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[600px] w-full mt-10 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/2 mx-auto bg-cover bg-center rounded-2xl overflow-hidden"
       style={{ backgroundImage: `url(${image})` }}
     >
       <div className="h-full bg-black bg-opacity-50 flex flex-col justify-center items-center">
