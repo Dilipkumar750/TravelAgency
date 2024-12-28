@@ -38,12 +38,12 @@ const Connection = () => {
       {/* Swiper Carousel */}
       <div className="max-w-screen-xl mx-auto p-5">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]} // Include Autoplay module
+          modules={[Navigation, Pagination, Autoplay]} 
           spaceBetween={20}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 2000, disableOnInteraction: false }} // Autoplay settings
+          autoplay={{ delay: 2000, disableOnInteraction: false }} 
           breakpoints={{
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },

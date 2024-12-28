@@ -7,7 +7,7 @@ import {
   FaMapMarkedAlt,
 } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
-import home from "../../assets/herov.mp4";
+import home from "../../assets/herov6.mp4";
 
 const Hero = () => {
   const [startDate, setStartDate] = useState("");
