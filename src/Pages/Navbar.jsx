@@ -2,188 +2,125 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHoneymoonOpen, setIsHoneymoonOpen] = useState(false);
+  const [selectedHoneymoonTab, setSelectedHoneymoonTab] = useState("india");
 
-  const handleDropdownClick = (link) => {
-    console.log(`Navigating to ${link}`);
-    setIsDropdownOpen(false); // Close the dropdown after clicking
-    window.location.href = link; // Navigate to the selected link
+  const handleHoneymoonMouseEnter = () => {
+    setIsHoneymoonOpen(true);
   };
 
-  const handleAboutClick = () => {
-    setIsDropdownOpen(!isDropdownOpen); // Toggle dropdown on click
+  const handleHoneymoonMouseLeave = () => {
+    setIsHoneymoonOpen(false);
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  const handleHoneymoonTabClick = (tab) => {
+    setSelectedHoneymoonTab(tab);
   };
+
+  const indianDestinations = [
+    "Goa", "Coorg", "Dalhousie", "Darjeeling", "Kodaikanal", "Agra", "Munnar","Sikkim","Udaipur","Pondicherry",
+  ];
+
+  const internationalDestinations = [
+    "Maldives", "Bali", "Mauritius", "Phuket", "Switzerland", "Seychelles",
+    "Langkawi", "Paris", "Italy", "Krabi",
+  ];
 
   return (
-    <nav className="text-black px-48 bg-white/90 flex justify-between items-center p-4  sticky top-0 z-50 font-blacker_pro_display_condensed, sans-serif, sans-serif;">
-      {/* Logo or Branding */}
-      <img src={logo} alt="" className="w-40" />
-
-      {/* Mobile Menu Toggle */}
-      <div className="lg:hidden" onClick={toggleMobileMenu}>
-        <button className="text-black">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="h-6 w-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-0 left-0 right-0 bg-transparent text-black lg:hidden flex flex-col items-center py-4 space-y-4">
-          <a href="/" className="hover:text-gray-800">Home</a>
-          <div className="relative">
-            <span
-              className="cursor-pointer hover:text-gray-800"
-              onClick={handleAboutClick}
-            >
-              About Us
-            </span>
-            {isDropdownOpen && (
-              <div className="absolute top-8 left-0 bg-white text-black rounded-lg shadow-lg w-48 py-2 z-50">
-                <a
-                  href="/about"
-                  onClick={() => handleDropdownClick('/about')}
-                  className="block px-4 py-2 hover:bg-gray-200"
-                >
-                  About Us
-                </a>
-                <a
-                  href="/testimonials"
-                  onClick={() => handleDropdownClick('/testimonials')}
-                  className="block px-4 py-2 hover:bg-gray-200"
-                >
-                  Testimonials
-                </a>
-                <a
-                  href="/awards"
-                  onClick={() => handleDropdownClick('/awards')}
-                  className="block px-4 py-2 hover:bg-gray-200"
-                >
-                  Awards
-                </a>
-                <a
-                  href="/history"
-                  onClick={() => handleDropdownClick('/history')}
-                  className="block px-4 py-2 hover:bg-gray-200"
-                >
-                  History
-                </a>
-                <a
-                  href="/TermsAndConditions"
-                  onClick={() => handleDropdownClick('/TermsAndConditions')}
-                  className="block px-4 py-2 hover:bg-gray-200"
-                >
-                  Terms & Conditions
-                </a>
-                <a
-                  href="/PrivacyPolicy"
-                  onClick={() => handleDropdownClick('/PrivacyPolicy')}
-                  className="block px-4 py-2 hover:bg-gray-200"
-                >
-                  Privacy Policy
-                </a>
-              </div>
-            )}
-          </div>
-          <a href="/StayHome" className="hover:text-gray-800">Stays</a>
-          <a href="/Destinations" className="hover:text-gray-800">Destinations</a>
-          <a href="/PackagesHome" className="hover:text-gray-800">Packages</a>
-          <a href="/HoneymoonHome" className="hover:text-gray-800">Honey Moon</a>
-          <a href="/Contact" className="hover:text-gray-800">Contact</a>
-          {/* <a href="/SignIn" className="hover:text-gray-800">Sign In</a> */}
-        </div>
-      )}
+    <nav className="text-black px-48 bg-white/90 flex justify-between items-center p-4 sticky top-0 z-50 font-blacker_pro_display_condensed, sans-serif;">
+      {/* Logo */}
+      <img src={logo} alt="Logo" className="w-40" />
 
       {/* Desktop Menu */}
       <div className="hidden lg:flex gap-10">
-        {/* Home */}
         <a href="/" className="hover:text-gray-800 font-bold">Home</a>
-
-        {/* About Us with Dropdown */}
-        <div className="relative">
-          <span
-            className="cursor-pointer hover:text-gray-800 font-bold"
-            onClick={handleAboutClick}
-          >
-            About Us
-          </span>
-
-          {/* Dropdown Menu */}
-          {isDropdownOpen && (
-            <div className="absolute top-8 right-0 bg-white text-black rounded-lg shadow-lg w-48 py-2 z-50">
-              <a
-                href="/about"
-                onClick={() => handleDropdownClick('/about')}
-                className="block px-4 py-2 hover:bg-gray-200"
-              >
-                About Us
-              </a>
-              <a
-                href="/testimonials"
-                onClick={() => handleDropdownClick('/testimonials')}
-                className="block px-4 py-2 hover:bg-gray-200"
-              >
-                Testimonials
-              </a>
-              <a
-                href="/awards"
-                onClick={() => handleDropdownClick('/awards')}
-                className="block px-4 py-2 hover:bg-gray-200"
-              >
-                Awards
-              </a>
-              <a
-                href="/history"
-                onClick={() => handleDropdownClick('/history')}
-                className="block px-4 py-2 hover:bg-gray-200"
-              >
-                History
-              </a>
-              <a
-                href="/TermsAndConditions"
-                onClick={() => handleDropdownClick('/TermsAndConditions')}
-                className="block px-4 py-2 hover:bg-gray-200"
-              >
-                Terms & Conditions
-              </a>
-              <a
-                href="/PrivacyPolicy"
-                onClick={() => handleDropdownClick('/PrivacyPolicy')}
-                className="block px-4 py-2 hover:bg-gray-200"
-              >
-                Privacy Policy
-              </a>
-            </div>
-          )}
-        </div>
-
-        {/* Other Navigation Links */}
-     
+        <a href="/about" className="hover:text-gray-800 font-bold">About Us</a>
         <a href="/StayHome" className="hover:text-gray-800 font-bold">Stays</a>
         <a href="/Destinations" className="hover:text-gray-800 font-bold">Destinations</a>
         <a href="/PackagesHome" className="hover:text-gray-800 font-bold">Packages</a>
-        <a href="/HoneymoonHome" className="hover:text-gray-800 font-bold">Honey Moon</a>
-        <a href="/Contact" className="hover:text-gray-800 font-bold">Contact</a>
+
+        {/* Honeymoon Dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={handleHoneymoonMouseEnter}
+          onMouseLeave={handleHoneymoonMouseLeave}
+        >
+          <span className="cursor-pointer hover:text-gray-800 font-bold">
+            Honeymoon
+          </span>
+          {isHoneymoonOpen && (
+            <div className="absolute top-8 right-0 bg-slate-50 text-black rounded-lg shadow-lg w-80 py-4 z-50">
+              {/* Tabs */}
+              <div className="flex border-b text-blue-500 font-medium">
+                <button
+                  className={`w-1/2 p-2 ${
+                    selectedHoneymoonTab === "india"
+                      ? "bg-gray-200 rounded-3xl"
+                      : "hover:bg-gray-200 rounded-3xl"
+                  }`}
+                  onClick={() => handleHoneymoonTabClick("india")}
+                >
+                  India
+                </button>
+                <button
+                  className={`w-1/2 p-2 ${
+                    selectedHoneymoonTab === "international"
+                      ? "bg-gray-200 rounded-3xl"
+                      : "hover:bg-gray-200 rounded-3xl"
+                  }`}
+                  onClick={() => handleHoneymoonTabClick("international")}
+                >
+                  International
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-4">
+                {/* Indian Destinations */}
+                {selectedHoneymoonTab === "india" && (
+                  <div className="w-full">
+                    <h4 className="font-bold mb-2">Indian Destinations</h4>
+                    <ul className="list-disc pl-5 grid grid-cols-2 gap-x-4 space-y-">
+                      {indianDestinations.map((destination, index) => (
+                        <li key={index}>
+                          <a
+                            href={`/${destination.toLowerCase().replace(" ", "-")}`}
+                            className="hover:text-blue-500 text-sm "
+                          >
+                            {destination}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* International Destinations */}
+                {selectedHoneymoonTab === "international" && (
+                  <div className="w-full">
+                    <h4 className="font-bold mb-2">International Destinations</h4>
+                    <ul className="list-disc pl-5 grid grid-cols-2 gap-x-4 space-y-">
+                      {internationalDestinations.map((destination, index) => (
+                        <li key={index}>
+                          <a
+                            href={`/${destination.toLowerCase().replace(" ", "-")}`}
+                            className="hover:text-blue-500 text-sm "
+                          >
+                            {destination}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
-        {/* <a href="/SignIn" className="hover:text-gray-800">Sign In</a> */}
-    
+        <a href="/Contact" className="hover:text-gray-800 font-bold">
+          Contact
+        </a>
+      </div>
     </nav>
   );
 };
