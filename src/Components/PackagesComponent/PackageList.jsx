@@ -38,7 +38,7 @@ const PackageList = () => {
   };
 
   return (
-    <div className="p-4 sm:p-6 lg:p-10">
+    <div className="p-4 sm:p-6 lg:p-10 mt-10">
       {/* Toggle Buttons */}
       <div className="flex justify-center mb-6 space-x-2 sm:space-x-4">
         {["All", "India", "International"].map((btn) => (
