@@ -133,6 +133,10 @@ const Contact = () => {
                   className="w-1/2 p-4 text-gray-700 bg-gray-50 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-400"
                   placeholder="Travel Start Date *"
                   required
+                  value={startDate}
+                  onChange={handleDateChange}
+                  min={today}
+
                 />
                 <input
                   type="date"
