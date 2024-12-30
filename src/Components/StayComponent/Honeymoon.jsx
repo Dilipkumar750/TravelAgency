@@ -45,7 +45,7 @@ const cards = [
     },
     {
       id: 4,
-      title: "Kerala Backwaters Honeymoon",
+      title: "Kerala Backwaters",
       price: "₹88,500",
       rating: "4.7",
       duration: "4 Days 3 Nights",
