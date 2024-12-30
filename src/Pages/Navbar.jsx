@@ -1,125 +1,126 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const [isHoneymoonOpen, setIsHoneymoonOpen] = useState(false);
-  const [selectedHoneymoonTab, setSelectedHoneymoonTab] = useState("india");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleHoneymoonMouseEnter = () => {
-    setIsHoneymoonOpen(true);
+  const handleDropdownClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleHoneymoonMouseLeave = () => {
-    setIsHoneymoonOpen(false);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-
-  const handleHoneymoonTabClick = (tab) => {
-    setSelectedHoneymoonTab(tab);
-  };
-
-  const indianDestinations = [
-    "Goa", "Coorg", "Dalhousie", "Darjeeling", "Kodaikanal", "Agra", "Munnar","Sikkim","Udaipur","Pondicherry",
-  ];
-
-  const internationalDestinations = [
-    "Maldives", "Bali", "Mauritius", "Phuket", "Switzerland", "Seychelles",
-    "Langkawi", "Paris", "Italy", "Krabi",
-  ];
 
   return (
     <nav className="text-black px-48 bg-white/90 flex justify-between items-center p-4 sticky top-0 z-50 font-blacker_pro_display_condensed, sans-serif;">
-      {/* Logo */}
       <img src={logo} alt="Logo" className="w-40" />
+
+      {/* Mobile Menu Toggle */}
+      <div className="lg:hidden" onClick={toggleMobileMenu}>
+        <button className="text-black">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-0 left-0 right-0 bg-transparent text-black lg:hidden flex flex-col items-center py-4 space-y-4">
+          <Link to="/" className="hover:text-gray-800">Home</Link>
+          <div className="relative">
+            <span
+              className="cursor-pointer hover:text-gray-800"
+              onClick={handleDropdownClick}
+            >
+              About Us
+            </span>
+            {isDropdownOpen && (
+              <div className="absolute top-8 left-0 bg-white text-black rounded-lg shadow-lg w-48 py-2 z-50">
+                <Link to="/about" className="block px-4 py-2 hover:bg-gray-200">
+                  About Us
+                </Link>
+                <Link to="/testimonials" className="block px-4 py-2 hover:bg-gray-200">
+                  Testimonials
+                </Link>
+                <Link to="/awards" className="block px-4 py-2 hover:bg-gray-200">
+                  Awards
+                </Link>
+                <Link to="/history" className="block px-4 py-2 hover:bg-gray-200">
+                  History
+                </Link>
+                <Link to="/TermsAndConditions" className="block px-4 py-2 hover:bg-gray-200">
+                  Terms & Conditions
+                </Link>
+                <Link to="/PrivacyPolicy" className="block px-4 py-2 hover:bg-gray-200">
+                  Privacy Policy
+                </Link>
+              </div>
+            )}
+          </div>
+          <Link to="/StayHome" className="hover:text-gray-800">Stays</Link>
+          <Link to="/Destinations" className="hover:text-gray-800">Destinations</Link>
+          <Link to="/PackagesHome" className="hover:text-gray-800">Packages</Link>
+          <Link to="/HoneymoonHome" className="hover:text-gray-800">Honey Moon</Link>
+          <Link to="/Contact" className="hover:text-gray-800">Contact</Link>
+        </div>
+      )}
 
       {/* Desktop Menu */}
       <div className="hidden lg:flex gap-10">
-        <a href="/" className="hover:text-gray-800 font-bold">Home</a>
-        <a href="/about" className="hover:text-gray-800 font-bold">About Us</a>
-        <a href="/StayHome" className="hover:text-gray-800 font-bold">Stays</a>
-        <a href="/Destinations" className="hover:text-gray-800 font-bold">Destinations</a>
-        <a href="/PackagesHome" className="hover:text-gray-800 font-bold">Packages</a>
+        <Link to="/" className="hover:text-gray-800 font-bold">Home</Link>
 
-        {/* Honeymoon Dropdown */}
-        <div
-          className="relative"
-          onMouseEnter={handleHoneymoonMouseEnter}
-          onMouseLeave={handleHoneymoonMouseLeave}
-        >
-          <span className="cursor-pointer hover:text-gray-800 font-bold">
-            Honeymoon
+        {/* About Us with Dropdown */}
+        <div className="relative">
+          <span
+            className="cursor-pointer hover:text-gray-800 font-bold"
+            onClick={handleDropdownClick}
+          >
+            About Us
           </span>
-          {isHoneymoonOpen && (
-            <div className="absolute top-8 right-0 bg-slate-50 text-black rounded-lg shadow-lg w-80 py-4 z-50">
-              {/* Tabs */}
-              <div className="flex border-b text-blue-500 font-medium">
-                <button
-                  className={`w-1/2 p-2 ${
-                    selectedHoneymoonTab === "india"
-                      ? "bg-gray-200 rounded-3xl"
-                      : "hover:bg-gray-200 rounded-3xl"
-                  }`}
-                  onClick={() => handleHoneymoonTabClick("india")}
-                >
-                  India
-                </button>
-                <button
-                  className={`w-1/2 p-2 ${
-                    selectedHoneymoonTab === "international"
-                      ? "bg-gray-200 rounded-3xl"
-                      : "hover:bg-gray-200 rounded-3xl"
-                  }`}
-                  onClick={() => handleHoneymoonTabClick("international")}
-                >
-                  International
-                </button>
-              </div>
-
-              {/* Content */}
-              <div className="p-4">
-                {/* Indian Destinations */}
-                {selectedHoneymoonTab === "india" && (
-                  <div className="w-full">
-                    <h4 className="font-bold mb-2">Indian Destinations</h4>
-                    <ul className="list-disc pl-5 grid grid-cols-2 gap-x-4 space-y-">
-                      {indianDestinations.map((destination, index) => (
-                        <li key={index}>
-                          <a
-                            href={`/${destination.toLowerCase().replace(" ", "-")}`}
-                            className="hover:text-blue-500 text-sm "
-                          >
-                            {destination}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* International Destinations */}
-                {selectedHoneymoonTab === "international" && (
-                  <div className="w-full">
-                    <h4 className="font-bold mb-2">International Destinations</h4>
-                    <ul className="list-disc pl-5 grid grid-cols-2 gap-x-4 space-y-">
-                      {internationalDestinations.map((destination, index) => (
-                        <li key={index}>
-                          <a
-                            href={`/${destination.toLowerCase().replace(" ", "-")}`}
-                            className="hover:text-blue-500 text-sm "
-                          >
-                            {destination}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
+          {isDropdownOpen && (
+            <div className="absolute top-8 right-0 bg-white text-black rounded-lg shadow-lg w-48 py-2 z-50">
+              <Link to="/about" className="block px-4 py-2 hover:bg-gray-200">
+                About Us
+              </Link>
+              <Link to="/testimonials" className="block px-4 py-2 hover:bg-gray-200">
+                Testimonials
+              </Link>
+              <Link to="/awards" className="block px-4 py-2 hover:bg-gray-200">
+                Awards
+              </Link>
+              <Link to="/history" className="block px-4 py-2 hover:bg-gray-200">
+                History
+              </Link>
+              <Link to="/TermsAndConditions" className="block px-4 py-2 hover:bg-gray-200">
+                Terms & Conditions
+              </Link>
+              <Link to="/PrivacyPolicy" className="block px-4 py-2 hover:bg-gray-200">
+                Privacy Policy
+              </Link>
             </div>
           )}
         </div>
-        <a href="/Contact" className="hover:text-gray-800 font-bold">
-          Contact
-        </a>
+
+        <Link to="/StayHome" className="hover:text-gray-800 font-bold">Stays</Link>
+        <Link to="/Destinations" className="hover:text-gray-800 font-bold">Destinations</Link>
+        <Link to="/PackagesHome" className="hover:text-gray-800 font-bold">Packages</Link>
+        <Link to="/HoneymoonHome" className="hover:text-gray-800 font-bold">Honey Moon</Link>
+        <Link to="/Contact" className="hover:text-gray-800 font-bold">Contact</Link>
       </div>
     </nav>
   );

@@ -167,7 +167,7 @@ const TopDest = () => {
     return (
         <div>
             {/* Search Bar */}
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-20">
                 <input
                     type="text"
                     placeholder="Search by place name..."
