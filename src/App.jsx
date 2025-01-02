@@ -18,6 +18,7 @@ import PrivacyPolicy from './Components/AboutComponent/PrivacyPolicy';
 import Swal from "sweetalert2";
 import HoneymoonHome from './Components/HoneymoonComponent/HoneymoonHome';
 import TopHeader from './Pages/topHeader';
+import ViewDetails from './Components/ViewDetails';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,6 +70,8 @@ function App() {
         <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
         <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/ViewDetails" element={<ViewDetails />} />
+
       </Routes>
 
       <Footer />

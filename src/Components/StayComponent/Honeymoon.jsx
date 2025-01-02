@@ -79,7 +79,7 @@ const Honeymoon = () => {
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto p-5">
+    <div className="max-w-screen-xl mx-auto p-5">
       <h2 className="text-3xl font-bold mb-6 text-center">Explore Popular Beach Packages</h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
