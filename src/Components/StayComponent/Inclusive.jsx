@@ -103,7 +103,7 @@ const Inclusive = () => {
     const displayedCards = showAll ? cards : cards.slice(0, 4);
 
     return (
-        <div className="max-w-screen-lg mx-auto p-5">
+        <div className="max-w-screen-xl mx-auto p-5">
             <h2 className="text-3xl font-bold mb-6 text-center">Popular Beach Packages</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
