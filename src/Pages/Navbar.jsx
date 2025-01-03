@@ -103,9 +103,9 @@ const Navbar = () => {
               <Link to="/awards" className="block px-4 py-2 hover:bg-gray-200">
                 Awards
               </Link>
-              <Link to="/history" className="block px-4 py-2 hover:bg-gray-200">
+              {/* <Link to="/history" className="block px-4 py-2 hover:bg-gray-200">
                 History
-              </Link>
+              </Link> */}
               <Link to="/TermsAndConditions" className="block px-4 py-2 hover:bg-gray-200">
                 Terms & Conditions
               </Link>

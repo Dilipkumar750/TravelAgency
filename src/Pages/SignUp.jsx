@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import consignup from '../assets/travel_23-2148034068.avif';
-import sign from '../assets/signup bg.gif';
+// import sign from '../assets/signup bg.gif';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import icons
 
 const SignUp = () => {
