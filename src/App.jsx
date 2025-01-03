@@ -19,6 +19,8 @@ import Swal from "sweetalert2";
 import HoneymoonHome from './Components/HoneymoonComponent/HoneymoonHome';
 import TopHeader from './Pages/topHeader';
 import ViewDetails from './Components/ViewDetails';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,6 +52,9 @@ function App() {
   const handleEndDateChange = (e) => {
     setEndDate(e.target.value);
   };
+  useEffect(() => {
+    AOS.init(1000);
+  }, []);
 
   return (
     <BrowserRouter>
