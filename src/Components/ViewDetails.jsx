@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import bali from '../assets/bali2.jpeg';
+import famous from '../assets/fbali1.jpeg';
+import famous1 from '../assets/fbali2.jpeg';
 import beach1 from '../assets/beach1.png';
 import beach2 from '../assets/beach2.png';
 import beach3 from '../assets/beach3.png';
@@ -10,7 +12,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach } from "react-icons/fa";
+import { FaPlane } from "react-icons/fa";
+import hotel from "../assets/hotel.jpg";
 
 const ViewDetails = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -60,6 +63,46 @@ const ViewDetails = () => {
   ];
 
   const galleryImages = [beach1, beach2, beach3, beach4, beach5]; // Gallery images
+  const hotelOptions = [
+    {
+      hotelName: 'Hotel Grand',
+      address: '123 Main Street, City Center, XYZ',
+      category: '3 Star',
+      prices: ['₹12,500', '₹11,750', '₹11,650', '₹11,300']
+    },
+    {
+      hotelName: 'The Royal Inn',
+      address: '456 Luxury Lane, Uptown, ABC',
+      category: '4 Star',
+      prices: ['₹13,450', '₹15,200', '₹14,450', '₹12,750']
+    },
+    {
+      hotelName: 'Hotel Elite',
+      address: '789 Elite Road, Downtown, DEF',
+      category: '5 Star',
+      prices: ['₹14,400', '₹12,700', '₹14,000', '₹14,000']
+    },
+  ];
+
+
+  const inclusions = [
+    '2 Night Accommodation in Malaysia',
+    'Breakfast at Hotel',
+    'Genting Day Trip with One way cable car',
+    'KL Half day city tour',
+    'Airport Arrival and Departure on PVT Transfers',
+    'All tour transfers on SIC Basis',
+  ];
+
+  const additionalDetails = [
+    { label: 'Visa', value: 'Included' },
+    { label: 'Meals', value: 'Breakfast at Hotel' },
+    { label: 'Trip Type', value: 'Couples/Honeymoon' },
+    { label: 'Duration', value: '7D/6N' },
+    { label: 'Accommodation', value: '3 Star / 4 Star / 5 Star' },
+    { label: 'Cities Covered', value: 'Kuala Lumpur, Genting' },
+    { label: 'Arrival/Departure', value: 'On Arrival (Free of Cost)' },
+  ];
 
   const handleImageClick = (image) => {
     setCurrentImage(image);
@@ -117,6 +160,98 @@ const ViewDetails = () => {
         </div>
       </div>
 
+      {/* Hotel Details */}
+      <div className="mt-10 max-w-3/4 mx-auto">
+        <h2 className="text-2xl font-bold mb-6">Hotel Details & Inclusions</h2>
+
+        {/* Hotel Categories */}
+        <div className="mb-5">
+          <h3 className="text-xl font-semibold">Hotel Options</h3>
+
+          <div className='flex gap-10 w-full'>
+            <table className="table-auto w-full mt-4 border-collapse">
+              <thead>
+                <tr className="bg-gray-200">
+                  <th className="py-2 px-4 text-left">Category</th>
+                  <th className="py-2 px-4 text-left">Hotel Name</th>
+                  <th className="py-2 px-4 text-left">Hotel Address</th>
+                  <th className="py-2 px-4 text-left">2 PAX</th>
+                  <th className="py-2 px-4 text-left">4 PAX</th>
+                  <th className="py-2 px-4 text-left">6 PAX</th>
+                  <th className="py-2 px-4 text-left">8 PAX</th>
+                </tr>
+              </thead>
+              <tbody>
+                {hotelOptions.map((option, index) => (
+                  <tr key={index}>
+                    <td className="border py-2 px-4">{option.category}</td>
+                    <td className="border py-2 px-4">{option.hotelName}</td>
+                    <td className="border py-2 px-4">{option.address}</td>
+                    {option.prices.map((price, priceIndex) => (
+                      <td key={priceIndex} className="border py-2 px-4">{price}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+
+            <div className='w-1/2'>
+              <img src={hotel} alt="Hotel" className="w-full h-full object-cover rounded-lg" />
+            </div>
+          </div>
+
+          <p className="text-center text-sm mt-3 font-semibold">*THE ABOVE MENTIONED IS <span className="text-red-600">PER PERSON PRICE</span>*</p>
+        </div>
+
+        <section className="w-full p-4 bg-white">
+          <h2 className="text-2xl font-bold text-center mb-6">Our Famous Bali Spot</h2>
+          <div className="flex justify-center gap-4">
+            <img
+              src={famous}
+              alt="Famous Bali Spot 1"
+              className="w-full md:w-1/2 h-auto rounded shadow-lg"
+            />
+            <img
+              src={famous1}
+              alt="Famous Bali Spot 2"
+              className="w-full md:w-1/2 h-auto rounded shadow-lg"
+            />
+          </div>
+        </section>
+        {/* Inclusions */}
+        <div className="mb-5">
+          <h3 className="text-xl font-semibold">Inclusions</h3>
+          <ul className="list-disc ml-5">
+            {inclusions.map((inclusion, index) => (
+              <li key={index}>{inclusion}</li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Additional Information */}
+        <div className="mb-5">
+          <h3 className="text-xl font-semibold">Additional Details</h3>
+          <table className="table-auto w-full mt-4 border-collapse">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="py-2 px-4 text-left">Detail</th>
+                <th className="py-2 px-4 text-left">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {additionalDetails.map((detail, index) => (
+                <tr key={index}>
+                  <td className="border py-2 px-4"><strong>{detail.label}</strong></td>
+                  <td className="border py-2 px-4">{detail.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
       {/* Other Bali Packages */}
       <p className="text-lg font-semibold mt-5 text-center">Explore Similar Bali Packages:</p>
       <div className="max-w-screen-xl mx-auto p-5 mt-10">
@@ -136,99 +271,24 @@ const ViewDetails = () => {
         >
           {cards.map((card) => (
             <SwiperSlide key={card.id}>
-              <div className="max-w-sm mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg cursor-pointer">
-                {/* Card Image */}
-                <div className="relative">
-                  <img className="w-full h-48 object-cover" src={card.image} alt={card.title} />
-                  <div className="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">
-                    {card.rating} ★
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div className="p-4 bg-white">
-                  <h3 className="text-lg font-medium mb-2">{card.title}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{card.duration}</p>
-                  <p className="text-gray-600 text-xs mb-4">{card.description}</p>
-
-                  {/* Features */}
-                  <div className="grid grid-cols-2 gap-2 mb-4 text-gray-600 text-sm">
-                    <div className="flex items-center">
-                      <FaPlane className="text-blue-500 mr-2" /> {card.features.flights} Flights
-                    </div>
-                    <div className="flex items-center">
-                      <FaHotel className="text-blue-500 mr-2" /> {card.features.hotels} Hotel
-                    </div>
-                    <div className="flex items-center">
-                      <FaCar className="text-blue-500 mr-2" /> {card.features.transfers} Transfers
-                    </div>
-                    <div className="flex items-center">
-                      <FaUmbrellaBeach className="text-blue-500 mr-2" /> {card.features.activities} Activities
-                    </div>
-                  </div>
-
-                  {/* Price and Book Button */}
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-lg text-blue-500">{card.price}</span>
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-2 rounded">
-                      Book Now
-                    </button>
-                  </div>
+              <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img className="w-full h-56 object-cover" src={card.image} alt={card.title} />
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold">{card.title}</h3>
+                  <p className="text-md">{card.description}</p>
+                  <p className="mt-3 text-sm">
+                    <strong>Price: {card.price}</strong> | <span className="text-yellow-400">Rating: {card.rating}</span> |{' '}
+                    <span className="text-blue-500">{card.duration}</span>
+                  </p>
+                  <button className="mt-3 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full">
+                    Book Now
+                  </button>
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-
-      {/* Gallery Section */}
-      <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-        <div className="border-b mb-5 flex justify-between text-sm">
-          <div className="text-indigo-600 text-center flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
-            Gallery of Bali
-          </div>
-        </div>
-
-        {/* Image Gallery */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {galleryImages.map((image, index) => (
-            <div className="bg-white rounded-md shadow-md overflow-hidden cursor-pointer" key={index} onClick={() => handleImageClick(image)}>
-              <img src={image} alt={`Bali Beach ${index + 1}`} className="w-full h-40 object-cover" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Modal for Image Viewing */}
-      {modalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg max-w-3xl w-3/4">
-            <div className="relative">
-              <button onClick={handleCloseModal} className="absolute top-2 right-2 text-black text-2xl font-bold">
-                &times;
-              </button>
-              <div className="p-6">
-                <img src={currentImage} alt="Current View" className="w-full h-96 object-cover rounded-md" />
-              </div>
-              <div className="p-6 flex justify-between items-center">
-                <button onClick={() => handleNextImage('prev')} className="text-lg font-bold text-blue-500">Previous</button>
-                <button onClick={() => handleNextImage('next')} className="text-lg font-bold text-blue-500">Next</button>
-              </div>
-              <div className="flex p-6 items-center rounded-md">
-                {galleryImages.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`Thumbnail ${index + 1}`}
-                    className="w-16 h-16 object-cover cursor-pointer rounded-lg border-2 border-transparent hover:border-blue-500"
-                    onClick={() => setCurrentImage(image)}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

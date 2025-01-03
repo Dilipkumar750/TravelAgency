@@ -15,6 +15,8 @@ const packagesData = [
         id: 1,
         title: "Darjeeling",
         image: darjeeling,
+        originalPrice: 95000,
+        discountedPrice: 88952,
         duration: "5 days",
         description: "Experience the beauty of the Queen of Hills",
         price: "\u20B975,000",
@@ -162,33 +164,33 @@ const TopDest = () => {
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
-   
-        const navigate = useNavigate();
 
-        const handlePageChange = (page) => setCurrentPage(page);
+    const navigate = useNavigate();
 
-        return (
-            <div>
-                {/* Search Bar */}
-                <div className="flex justify-center mt-20">
-                    <input
-                        type="text"
-                        placeholder="Search by place name..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-3/4 sm:w-1/2 md:w-1/3 px-4 py-2 border border-gray-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                </div>
+    const handlePageChange = (page) => setCurrentPage(page);
 
-                <div className="flex flex-col p- md:flex-row">
-                    {/* Filters Section */}
-                    <div
-                        className="w-full sticky md:w-1/4 bg-gray-100 p-4"
-                    >
-                        <h2 className="text-lg font-semibold mb-4">Filters</h2>
-                        {/* Category Filter */}
-                        <div className="mb-6">
-                            <h3 className="text-sm font-medium mb-2">Category</h3>
+    return (
+        <div>
+            {/* Search Bar */}
+            <div className="flex justify-center mt-20">
+                <input
+                    type="text"
+                    placeholder="Search by place name..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-3/4 sm:w-1/2 md:w-1/3 px-4 py-2 border border-gray-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+            </div>
+
+            <div className="flex flex-col p- md:flex-row">
+                {/* Filters Section */}
+                <div className="w-full sticky md:w-1/5 bg-white p-6 rounded-lg shadow-lg">
+                    <h2 className="text-xl font-semibold text-gray-800 mb-6">Filters</h2>
+
+                    {/* Category Filter */}
+                    <div className="mb-8">
+                        <h3 className="text-sm font-medium text-gray-600 mb-3">Category</h3>
+                        <div className="space-y-2">
                             {["All", "India", "International"].map((btn) => (
                                 <button
                                     key={btn}
@@ -197,129 +199,137 @@ const TopDest = () => {
                                         setRegion("All");
                                         setCurrentPage(1);
                                     }}
-                                    className={`block w-full text-left px-4 py-2 mb-2 rounded-md ${category === btn
-                                        ? "bg-blue-500 text-white"
-                                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                                        }`}
+                                    className={`block w-full text-left px-5 py-3 rounded-md border-2 ${category === btn
+                                        ? "border-blue-500 bg-blue-100 text-blue-700"
+                                        : "border-gray-300 bg-gray-50 text-gray-700 hover:bg-gray-200"
+                                        } transition-all duration-200`}
                                 >
                                     {btn}
                                 </button>
                             ))}
                         </div>
+                    </div>
 
-                        {/* Budget Filter */}
-                        <div className="mb-6">
-                            <h3 className="text-sm font-medium mb-2">Budget</h3>
+                    {/* Budget Filter */}
+                    <div className="mb-8">
+                        <h3 className="text-sm font-medium text-gray-600 mb-3">Budget</h3>
+                        <div className="space-y-2">
                             {budgetOptions.map((option) => (
                                 <div key={option.label} className="flex items-center mb-2">
                                     <input
                                         type="checkbox"
                                         checked={budget.some((b) => JSON.stringify(b) === JSON.stringify(option.range))}
                                         onChange={() => handleCheckboxChange(budget, setBudget, option.range)}
-                                        className="mr-2"
+                                        className="mr-3"
                                     />
-                                    <label>{option.label}</label>
+                                    <label className="text-sm text-gray-700">{option.label}</label>
                                 </div>
                             ))}
                         </div>
+                    </div>
 
-                        {/* No of Days Filter */}
-                        <div className="mb-6">
-                            <h3 className="text-sm font-medium mb-2">No of Days</h3>
+                    {/* No of Days Filter */}
+                    <div className="mb-8">
+                        <h3 className="text-sm font-medium text-gray-600 mb-3">No of Days</h3>
+                        <div className="space-y-2">
                             {daysOptions.map((option) => (
                                 <div key={option.label} className="flex items-center mb-2">
                                     <input
                                         type="checkbox"
                                         checked={days.some((d) => JSON.stringify(d) === JSON.stringify(option.range))}
                                         onChange={() => handleCheckboxChange(days, setDays, option.range)}
-                                        className="mr-2"
+                                        className="mr-3"
                                     />
-                                    <label>{option.label}</label>
+                                    <label className="text-sm text-gray-700">{option.label}</label>
                                 </div>
                             ))}
                         </div>
+                    </div>
 
-                        {/* Hotel Ratings Filter */}
-                        <div className="mb-6">
-                            <h3 className="text-sm font-medium mb-2">Hotel Ratings</h3>
+                    {/* Hotel Ratings Filter */}
+                    <div className="mb-8">
+                        <h3 className="text-sm font-medium text-gray-600 mb-3">Hotel Ratings</h3>
+                        <div className="space-y-2">
                             {ratingsOptions.map((rating) => (
                                 <div key={rating} className="flex items-center mb-2">
                                     <input
                                         type="checkbox"
                                         checked={ratings.includes(rating)}
                                         onChange={() => handleCheckboxChange(ratings, setRatings, rating)}
-                                        className="mr-2"
+                                        className="mr-3"
                                     />
-                                    <label>{rating}</label>
+                                    <label className="text-sm text-gray-700">{rating}</label>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-
-
-                    {/* Main Section */}
-                    <div className="w-full md:w-3/4 p-6">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {paginatedPackages.map((card) => (
-                                <div
-                                    key={card.id}
-                                    className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer"
-                                >
-                                    <img
-                                        className="w-full h-40 object-cover"
-                                        src={card.image}
-                                        alt={card.title}
-                                    />
-                                    <div className="p-3 bg-white">
-                                        <h3 className="text-base font-medium mb-1">{card.title}</h3>
-                                        <p className="text-red-500 text-sm font-semibold">{card.duration}</p>
-                                        <p className="text-gray-600 text-xs mb-3">{card.description}</p>
-                                        <div className="flex justify-between text-gray-600 text-xs mb-3">
-                                            <div className="flex items-center">
-                                                <FaPlane className="text-blue-500 mr-1" />
-                                                {card.features.flights} Flights
-                                            </div>
-                                            <div className="flex items-center">
-                                                <FaHotel className="text-blue-500 mr-1" />
-                                                {card.features.hotels} Hotel
-                                            </div>
-                                        </div>
-                                        <div className="text-blue-500 text-sm font-bold mb-3">{card.price}</div>
-                                        <div className="flex justify-between space-x-2">
-                                            <button className="w-1/2 bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 transition">
-                                                Book Now
-                                            </button>
-                                            <button
-                                                className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition"
-                                                onClick={() => navigate(`/ViewDetails/${card.id}`)}
-                                            >
-                                                View
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Pagination */}
-                        <div className="flex justify-center mt-6 space-x-2">
-                            {Array.from({ length: totalPages }, (_, index) => (
-                                <button
-                                    key={index + 1}
-                                    onClick={() => handlePageChange(index + 1)}
-                                    className={`px-4 py-2 rounded ${currentPage === index + 1
-                                        ? "bg-blue-500 text-white"
-                                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                                        }`}
-                                >
-                                    {index + 1}
-                                </button>
                             ))}
                         </div>
                     </div>
                 </div>
-            </div>
-        );
-    };
 
-    export default TopDest;
+
+
+                {/* Main Section */}
+                <div className="w-full md:w-3/4 p-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {paginatedPackages.map((card) => (
+                            <div
+                                key={card.id}
+                                className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer"
+                            >
+                                <img
+                                    className="w-full h-40 object-cover"
+                                    src={card.image}
+                                    alt={card.title}
+                                />
+                                <div className="p-3 bg-white">
+                                    <h3 className="text-base font-medium mb-1">{card.title}</h3>
+                                    <p className="text-red-500 text-sm font-semibold">{card.duration}</p>
+                                    <p className="text-gray-600 text-xs mb-3">{card.description}</p>
+                                    <div className="flex justify-between text-gray-600 text-xs mb-3">
+                                        <div className="flex items-center">
+                                            <FaPlane className="text-blue-500 mr-1" />
+                                            {card.features.flights} Flights
+                                        </div>
+                                        <div className="flex items-center">
+                                            <FaHotel className="text-blue-500 mr-1" />
+                                            {card.features.hotels} Hotel
+                                        </div>
+                                    </div>
+                                    <div className="text-blue-500 text-sm font-bold mb-3">{card.price}</div>
+                                    <div className="flex justify-between space-x-2">
+                                        <button className="w-1/2 bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 transition">
+                                            Book Now
+                                        </button>
+                                        <button
+                                            className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition"
+                                            onClick={() => navigate(`/ViewDetails/${card.id}`)}
+                                        >
+                                            View
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Pagination */}
+                    <div className="flex justify-center mt-6 space-x-2">
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button
+                                key={index + 1}
+                                onClick={() => handlePageChange(index + 1)}
+                                className={`px-4 py-2 rounded ${currentPage === index + 1
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                                    }`}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default TopDest;
