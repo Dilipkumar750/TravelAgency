@@ -14,7 +14,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { FaPlane } from "react-icons/fa";
 import hotel from "../assets/hotel.jpg";
-
+import bg from "../assets/beachbg.jpeg"
 const ViewDetails = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
@@ -219,15 +219,101 @@ const ViewDetails = () => {
             />
           </div>
         </section>
+         <div className="w-full max-w-xl mx-auto p-6">
+            <h3
+              className="text-2xl font-semibold text-center mb-6 text-blue-700"
+              data-aos="fade-down"
+              data-aos-duration="1500"
+            >
+              Inclusions
+            </h3>
+            <div className="grid grid-cols-1 gap-4">
+              {inclusions.map((inclusion, index) => (
+                <div
+                  key={index}
+                  className="p-3 border border-gray-300 rounded-full shadow-md text-center text-white bg-blue-500 transform hover:scale-105 transition-transform duration-300"
+                  data-aos="fade-right"
+                  data-aos-delay={index * 100}
+                  data-aos-duration="1200"
+                >
+                  {inclusion}
+                </div>
+              ))}
+            </div>
+          </div>
         {/* Inclusions */}
-        <div className="mb-5">
-          <h3 className="text-xl font-semibold">Inclusions</h3>
-          <ul className="list-disc ml-5">
-            {inclusions.map((inclusion, index) => (
-              <li key={index}>{inclusion}</li>
-            ))}
-          </ul>
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 items-center h-screen bg-gray-100 bg-cover bg-center"
+          style={{ backgroundImage: `url(${bg})` }}
+        >
+         
+
+          {/* Right Section: Modal Form */}
+          <div className="flex justify-center items-center p-6">
+            <div className="relative bg-black/40 rounded-xl shadow-2xl p-8 w-full max-w-md">
+              {/* Close Icon */}
+              <button
+                className="absolute top-4 right-4 text-black hover:text-gray-700 text-2xl"
+                onClick={handleCloseModal}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+
+              {/* Header Section */}
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-blue-600 text-center mb-2">
+                  Plan Your Dream Vacation
+                </h2>
+                <p className="text-center text-black font-bold">
+                  Fill in the details below to create your personalized travel plan!
+                </p>
+              </div>
+
+              {/* Form Fields */}
+              {/* Add validation or dynamic bindings for better interactivity */}
+              <div className="space-y-4">
+                <input
+                  id="name"
+                  type="text"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                  placeholder="Name"
+                />
+                <input
+                  id="phone"
+                  type="text"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                  placeholder="Phone"
+                />
+                <input
+                  id="email"
+                  type="email"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                  placeholder="Email"
+                />
+                <input
+                  id="persons"
+                  type="number"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                  placeholder="Number of persons"
+                  min="1"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="mt-6">
+                <button
+                  className="w-full bg-gradient-to-r from-blue-700 to-green-600 text-white font-semibold rounded-lg px-6 py-3 transform hover:scale-105 transition-transform"
+                  onClick={() => alert("Form submitted!")}
+                >
+                  Submit Enquiry
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+
+
 
         {/* Additional Information */}
         <div className="mb-5">
