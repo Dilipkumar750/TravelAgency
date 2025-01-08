@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach } from "react-icons/fa";
+import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach, FaPhoneAlt } from "react-icons/fa";
 
 import beach1 from "../../assets/beach1.png";
 import beach2 from "../../assets/beach2.png";
@@ -145,9 +145,18 @@ const Inclusive = () => {
                             <div className="font-bold text-lg text-blue-500">
                                 {card.price}
                             </div>
+                            <div className="flex gap-5 bottom-0">
+                   
+                 <div className="bottom-0">
+                        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center">
+                            Request call back
+                        </button>
+                 </div>
+                </div>
                         </div>
                     </div>
                 ))}
+               
             </div>
 
             {/* Show More / Show Less Button */}

@@ -71,56 +71,7 @@ const Contact = () => {
       {/* Image Section */}
       <div>
         <img src={Flight} alt="Flight" className="w-full" />
-      </div>
-
-      {/* Contact Info Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-10">
-        <div className="border border-gray-300 p-10 rounded-lg shadow-md flex flex-col items-center">
-          <img src={locationcon} width="30" alt="Location Icon" className="mb-7" />
-          <p className="text-2xl font-bold text-blue-600 text-center mb-2">Office Location</p>
-          <p className="text-center">Near Indian Bank, JJ Nagar, Kuniyamuthur, Coimbatore, Tamil Nadu 641008</p>
-        </div>
-
-        <div className="border border-gray-300 p-10 rounded-lg shadow-md flex flex-col items-center">
-          <img src={call} width="30" alt="Call Icon" className="mb-7" />
-          <p className="text-2xl font-bold text-blue-600 text-center mb-2">Phone Number</p>
-          <p className="text-center">+91 89409 38536</p>
-          <p className="text-center">+91 84388 84810</p>
-        </div>
-
-        <div className="border border-gray-300 p-10 rounded-lg shadow-md flex flex-col items-center">
-          <img src={email} width="50" alt="Email Icon" className="mb-3" />
-          <p className="text-2xl font-bold text-blue-600 text-center mb-2">Email</p>
-          <p className="text-center">info@tentwoodtrips.com</p>
-        </div>
-      </div>
-
-      {/* Enquiry Form Section */}
-
-     
-
-
-
-      <div className="flex flex-col md:flex-row  p-10 mt-16 ml-24">
-      {/* Left Section: Google Map */}
-      <div className="w-full md:w-1/2 h-[350px] mt-16  ">
-      <div>
-        <p className="text-3xl text-center text-blue-600 font-bold mb-16 ">GET IN TOUCH WITH US</p>
-      </div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.064325052601!2d76.9538638!3d10.9585137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85bb9dbb4a0df%3A0x8c9ffbc2c74f096a!2sTentwood%20tours%20and%20travels!5e0!3m2!1sen!2sin!4v1735906596733!5m2!1sen!2sin"
-          width="100%"
-          height="100%"
-          style={{ border: "0" }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="rounded-xl "
-        ></iframe>
-      </div>
-
-      {/* Right Section: Enquiry Form */} 
-      <div className="bg-white rounded-xl shadow-2xl p-7 w-full max-w-md mx-auto ml-">
+        <div className="bg-white rounded-xl shadow-2xl p-7 w-full max-w-md mx-auto ml-">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-blue-600 text-center mb-2">Plan Your Dream Vacation</h2>
           <p className="text-center text-gray-500 text-sm">
@@ -220,6 +171,56 @@ const Contact = () => {
           </button>
         </div>
       </div>
+      </div>
+
+      {/* Contact Info Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-10">
+        <div className="border border-gray-300 p-10 rounded-lg shadow-md flex flex-col items-center">
+          <img src={locationcon} width="30" alt="Location Icon" className="mb-7" />
+          <p className="text-2xl font-bold text-blue-600 text-center mb-2">Office Location</p>
+          <p className="text-center">Near Indian Bank, JJ Nagar, Kuniyamuthur, Coimbatore, Tamil Nadu 641008</p>
+        </div>
+
+        <div className="border border-gray-300 p-10 rounded-lg shadow-md flex flex-col items-center">
+          <img src={call} width="30" alt="Call Icon" className="mb-7" />
+          <p className="text-2xl font-bold text-blue-600 text-center mb-2">Phone Number</p>
+          <p className="text-center">+91 89409 38536</p>
+          <p className="text-center">+91 84388 84810</p>
+        </div>
+
+        <div className="border border-gray-300 p-10 rounded-lg shadow-md flex flex-col items-center">
+          <img src={email} width="50" alt="Email Icon" className="mb-3" />
+          <p className="text-2xl font-bold text-blue-600 text-center mb-2">Email</p>
+          <p className="text-center">info@tentwoodtrips.com</p>
+        </div>
+      </div>
+
+      {/* Enquiry Form Section */}
+
+     
+
+
+
+      <div className="flex flex-col md:flex-row  p-10 mt-16 ml-24">
+      {/* Left Section: Google Map */}
+      <div className="w-full md:w-1/2 h-[350px] mt-16  ">
+      <div>
+        <p className="text-3xl text-center text-blue-600 font-bold mb-16 ">GET IN TOUCH WITH US</p>
+      </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.064325052601!2d76.9538638!3d10.9585137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85bb9dbb4a0df%3A0x8c9ffbc2c74f096a!2sTentwood%20tours%20and%20travels!5e0!3m2!1sen!2sin!4v1735906596733!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style={{ border: "0" }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="rounded-xl "
+        ></iframe>
+      </div>
+
+      {/* Right Section: Enquiry Form */} 
+   
     </div>
     <br/>
     <br/>
