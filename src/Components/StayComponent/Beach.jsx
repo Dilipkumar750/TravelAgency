@@ -73,6 +73,16 @@ const cards = [
 
 const Beach = () => {
   const swiperRef = useRef(null);
+  const handleCallClick = () => {
+    // Initiate the phone call to the number
+    window.location.href = "tel:+9566794685";
+  };
+
+  const handleRequestCallbackClick = () => {
+    // Send WhatsApp message saying "Customer is waiting for your response"
+    const message = "Customer is waiting for your response";
+    window.open(`https://wa.me/9566794685?text=${encodeURIComponent(message)}`, "_blank");
+  };
 
   const handleCardClick = () => {
     if (swiperRef.current) {
@@ -106,7 +116,7 @@ const Beach = () => {
           return (
             <SwiperSlide key={card.id}>
               <div
-                className="max-w-sm mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg cursor-pointer"
+                className="max-w-sm mx-auto rounded-md overflow-hidden shadow-2xl hover:shadow-lg cursor-pointer "
                 onClick={handleCardClick}
               >
                 {/* Card Image */}
@@ -116,7 +126,6 @@ const Beach = () => {
                     {card.rating} ★
                   </div>
                 </div>
-
                 {/* Card Content */}
                 <div className="p-4 bg-white">
                   <h3 className="text-lg font-medium mb-2">{card.title}</h3>
@@ -157,11 +166,18 @@ const Beach = () => {
 
                   {/* Enquiry Button */}
                   <div className="flex gap-5 bottom-0">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center">
+                    <button
+                      onClick={handleCallClick}
+                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center"
+                    >
                       <FaPhoneAlt className="mr-2" />
+                      
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center">
-                      Request call back
+                    <button
+                      onClick={handleRequestCallbackClick}
+                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center"
+                    >
+                      Request Call Back
                     </button>
                   </div>
                 </div>

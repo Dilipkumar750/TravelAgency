@@ -5,11 +5,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 import beach1 from "../../assets/beach1.png";
 import beach2 from "../../assets/beach2.png";
 
-// Card Data
 const cards = [
   {
     id: 1,
@@ -36,21 +36,13 @@ const cards = [
 const Recent = () => {
   const swiperRef = useRef(null);
 
-  const handleCardClick = (swiper) => {
-    swiper.autoplay.stop();
-    setTimeout(() => swiper.autoplay.start(), 5000);
-  };
-
   return (
-    <div>
-      <h2 className="text-3xl font-bold mb-6 text-center">Recently Viewed</h2>
-
-      <div className="flex flex-col sm:flex-row max-w-screen-lg mx-auto p-5 gap-6">
-        {/* Swiper Section occupying 50% of the screen */}
-        <div className="w-full sm:w-1/2">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-10">
+      <div className="flex flex-col sm:flex-row items-center gap-10 w-full max-w-7xl bg-white p-8 rounded-lg shadow-lg">
+        <div className="w-full sm:w-1/3">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={20}
+            spaceBetween={10}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
@@ -60,14 +52,12 @@ const Recent = () => {
             {cards.map((card) => (
               <SwiperSlide key={card.id}>
                 <div className="rounded-md overflow-hidden shadow-md hover:shadow-lg cursor-pointer">
-                  <img className="w-full h-48 object-cover" src={card.image} alt={card.title} />
+                  <img className="w-full h-60 object-cover" src={card.image} alt={card.title} />
                   <div className="p-4 bg-white">
-                    <h3 className="text-lg font-medium mb-2">{card.title}</h3>
-                    <p className="text-gray-600 text-sm mb-2">{card.duration}</p>
-                    <p className="text-gray-600 text-xs mb-4">{card.description}</p>
-
-                    {/* Features */}
-                    <div className="grid grid-cols-2 gap-2 mb-4 text-gray-600 text-sm">
+                    <h3 className="text-lg font-semibold mb-1">{card.title}</h3>
+                    <p className="text-gray-600 text-sm mb-1">{card.duration}</p>
+                    <p className="text-gray-600 text-xs mb-3">{card.description}</p>
+                    <div className="grid grid-cols-2 gap-2 text-gray-600 text-sm">
                       <div className="flex items-center">
                         <FaPlane className="text-blue-500 mr-2" /> {card.features.flights} Flights
                       </div>
@@ -88,39 +78,42 @@ const Recent = () => {
           </Swiper>
         </div>
 
-        {/* Contact/Booking Page Section occupying 50% */}
-        <div className="w-full sm:w-1/2 bg-gray-200 p-6 flex items-center justify-center">
-          <div>
-            <h2 className="text-2xl font-bold mb-4 text-center">Contact Us</h2>
+        <div className="w-full sm:w-1/4 h-[480px] flex bg-gray-200 rounded-2xl items-center justify-center">
+          <div className="w-full sm:w-3/4">
+            <h2 className="text-2xl font-bold text-blue-600 text-center mb-2">Plan Your Dream Vacation</h2>
+            {['name', 'phone', 'email', 'persons'].map((field) => (
+              <div className="mb-3" key={field}>
+                <label className="block text-sm font-medium text-gray-700">
+                  {field === 'persons' ? 'How Many Persons' : field.charAt(0).toUpperCase() + field.slice(1)}
+                </label>
+                <input
+                  id={field}
+                  type={field === 'email' ? 'email' : field === 'persons' ? 'number' : 'text'}
+                  className="mt-1 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 px-3 py-2"
+                  placeholder={`Enter your ${field}`}
+                  min={field === 'persons' ? '1' : undefined}
+                />
+              </div>
+            ))}
+            <button
+              className="w-full mb-10 mx-auto bg-gradient-to-r from-blue-700 to-green-600 text-white font-semibold text-lg rounded-lg px-5 py-3 hover:from-blue-600 hover:to-green-500 shadow-lg transform hover:scale-105 transition-transform"
+              onClick={() => {
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value || "Not provided";
+                const phone = document.getElementById("phone").value;
+                const persons = document.getElementById("persons").value;
 
-            {/* Contact Information */}
-            <p>📞 Call us at +91 123-456-7890</p>
-            <p>📧 Email: contact@beachpackages.com</p>
+                if (!name || !phone || !persons) {
+                  Swal.fire("Error", "Please fill all the fields!", "error");
+                  return;
+                }
 
-            {/* Booking Form */}
-            <form className="mt-4">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="border rounded w-full p-2 mt-2"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="border rounded w-full p-2 mt-2"
-              />
-              <textarea
-                placeholder="Your Message"
-                rows="4"
-                className="border rounded w-full p-2 mt-2"
-              />
-              <button
-                type="submit"
-                className="bg-blue-500 mt-4 w-full rounded text-white py-2 font-bold"
-              >
-                Submit
-              </button>
-            </form>
+                const message = `Hi, I would like to plan a trip with the following details:\n- Name: ${name}\n- Email: ${email}\n- Phone: ${phone}\n- Number of Persons: ${persons}`;
+                window.open(`https://wa.me/9566794685?text=${encodeURIComponent(message)}`, "_blank");
+              }}
+            >
+              Submit Enquiry
+            </button>
           </div>
         </div>
       </div>

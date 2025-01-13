@@ -16,6 +16,7 @@ import cultural from "../../assets/cultural.jpg";
 import nomadic from "../../assets/nomadic.jpg";
 import sunshine from "../../assets/sunshine.jpg";
 import adventure from "../../assets/adventure.jpg";
+import { Link } from "react-router-dom";
 
 const contentItems = [
   { id: 1, image: india, name: "Heritage India", travelers: "200,453 travelers" },
@@ -36,38 +37,40 @@ const Connection = () => {
       </h1>
 
       {/* Swiper Carousel */}
-      <div className="max-w-screen-xl mx-auto p-5">
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]} 
-          spaceBetween={20}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 2000, disableOnInteraction: false }} 
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-          }}
-          className="rounded-2xl"
-        >
-          {contentItems.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className="rounded-2xl overflow-hidden shadow-lg relative group">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute bottom-4 left-4 z-10 text-white bg-black bg-opacity-50 p-2 rounded-lg">
-                  <h3 className="font-bold text-lg">{item.name}</h3>
-                  <p className="text-sm">{item.travelers}</p>
+    <Link to="/honeymoonHome">
+        <div className="max-w-screen-xl mx-auto p-5">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]} 
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2000, disableOnInteraction: false }} 
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              768: { slidesPerView: 3 },
+              1024: { slidesPerView: 4 },
+            }}
+            className="rounded-2xl"
+          >
+            {contentItems.map((item) => (
+              <SwiperSlide key={item.id}>
+                <div className="rounded-2xl overflow-hidden shadow-lg relative group">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute bottom-4 left-4 z-10 text-white bg-black bg-opacity-50 p-2 rounded-lg">
+                    <h3 className="font-bold text-lg">{item.name}</h3>
+                    <p className="text-sm">{item.travelers}</p>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+    </Link>
     </div>
   );
 };

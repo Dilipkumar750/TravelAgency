@@ -29,7 +29,8 @@ const packagesData = [
         image: goa,
         duration: "4 days",
         description: "Beach paradise with vibrant nightlife",
-        price: "\u20B960,000",
+        originalPrice: 95000,
+        discountedPrice: 88952,
         category: "India",
         features: { flights: "Included", hotels: "3 star" },
     },
@@ -39,7 +40,8 @@ const packagesData = [
         image: bali2,
         duration: "7 days",
         description: "Tropical escape with serene beaches",
-        price: "\u20B91,20,000",
+        originalPrice: 95000,
+        discountedPrice: 88952,
         category: "International",
         features: { flights: "Included", hotels: "5 star" },
     },
@@ -49,7 +51,8 @@ const packagesData = [
         image: dubai,
         duration: "6 days",
         description: "Luxurious city with iconic landmarks",
-        price: "\u20B91,50,000",
+        originalPrice: 95000,
+        discountedPrice: 88952,
         category: "International",
         features: { flights: "Included", hotels: "4 star" },
     },
@@ -59,7 +62,8 @@ const packagesData = [
         image: kodaikanal,
         duration: "3 days",
         description: "Misty mountains and peaceful lakes",
-        price: "\u20B945,000",
+        originalPrice: 95000,
+        discountedPrice: 88952,
         category: "India",
         features: { flights: "Not Included", hotels: "3 star" },
     },
@@ -69,7 +73,8 @@ const packagesData = [
         image: singapore,
         duration: "5 days",
         description: "A modern city with cultural delights",
-        price: "\u20B91,80,000",
+        originalPrice: 95000,
+        discountedPrice: 88952,
         category: "International",
         features: { flights: "Included", hotels: "5 star" },
     },
@@ -79,7 +84,8 @@ const packagesData = [
         image: ooty,
         duration: "4 days",
         description: "A charming hill station in Tamil Nadu",
-        price: "\u20B960,000",
+        originalPrice: 95000,
+        discountedPrice: 88952,
         category: "India",
         features: { flights: "Not Included", hotels: "3 star" },
     },
@@ -89,7 +95,52 @@ const packagesData = [
         image: kashmir,
         duration: "8 days",
         description: "Paradise on Earth with stunning landscapes",
-        price: "\u20B91,10,000",
+        originalPrice: 95000,
+        discountedPrice: 88952,
+        category: "India",
+        features: { flights: "Included", hotels: "4 star" },
+    },
+    {
+        id: 9,
+        title: "Kodaikanal",
+        image: kodaikanal,
+        duration: "3 days",
+        description: "Misty mountains and peaceful lakes",
+        originalPrice: 95000,
+        discountedPrice: 88952,
+        category: "India",
+        features: { flights: "Not Included", hotels: "3 star" },
+    },
+    {
+        id: 10,
+        title: "Singapore",
+        image: singapore,
+        duration: "5 days",
+        description: "A modern city with cultural delights",
+        originalPrice: 95000,
+        discountedPrice: 88952,
+        category: "International",
+        features: { flights: "Included", hotels: "5 star" },
+    },
+    {
+        id: 11,
+        title: "Ooty",
+        image: ooty,
+        duration: "4 days",
+        description: "A charming hill station in Tamil Nadu",
+        originalPrice: 95000,
+        discountedPrice: 88952,
+        category: "India",
+        features: { flights: "Not Included", hotels: "3 star" },
+    },
+    {
+        id: 12,
+        title: "Kashmir",
+        image: kashmir,
+        duration: "8 days",
+        description: "Paradise on Earth with stunning landscapes",
+        originalPrice: 95000,
+        discountedPrice: 88952,
         category: "India",
         features: { flights: "Included", hotels: "4 star" },
     },
@@ -103,7 +154,7 @@ const TopDest = () => {
     const [days, setDays] = useState([]);
     const [ratings, setRatings] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 8;
+    const itemsPerPage = 12;
 
     const budgetOptions = [
         { label: "Below \u20B950K", range: [0, 50000] },
@@ -142,8 +193,7 @@ const TopDest = () => {
             budget.length === 0 ||
             budget.some((range) => {
                 const [min, max] = range;
-                const price = parseFloat(pkg.price.replace(/[^\d]/g, ""));
-                return price >= min && price <= max;
+                return pkg.discountedPrice >= min && pkg.discountedPrice <= max;
             });
 
         const daysMatch =
@@ -182,9 +232,9 @@ const TopDest = () => {
                 />
             </div>
 
-            <div className="flex flex-col p- md:flex-row">
+            <div className="flex flex-col md:flex-row h-[900px] overflow-y-auto">
                 {/* Filters Section */}
-                <div className="w-full sticky md:w-1/5 bg-white p-6 rounded-lg shadow-lg">
+                <div className="w-full md:w-1/5 bg-white p-6 rounded-lg shadow-lg sticky top-0">
                     <h2 className="text-xl font-semibold text-gray-800 mb-6">Filters</h2>
 
                     {/* Category Filter */}
@@ -270,38 +320,41 @@ const TopDest = () => {
                 {/* Main Section */}
                 <div className="w-full md:w-3/4 p-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {paginatedPackages.map((card) => (
+                        {paginatedPackages.map((pkg) => (
                             <div
-                                key={card.id}
+                                key={pkg.id}
                                 className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer"
                             >
                                 <img
                                     className="w-full h-40 object-cover"
-                                    src={card.image}
-                                    alt={card.title}
+                                    src={pkg.image}
+                                    alt={pkg.title}
                                 />
                                 <div className="p-3 bg-white">
-                                    <h3 className="text-base font-medium mb-1">{card.title}</h3>
-                                    <p className="text-red-500 text-sm font-semibold">{card.duration}</p>
-                                    <p className="text-gray-600 text-xs mb-3">{card.description}</p>
+                                    <h3 className="text-base font-medium mb-1">{pkg.title}</h3>
+                                    <p className="text-blue-500 text-sm font-semibold">{pkg.duration}</p>
+                                    <p className="text-gray-600 text-xs mb-3">{pkg.description}</p>
                                     <div className="flex justify-between text-gray-600 text-xs mb-3">
                                         <div className="flex items-center">
                                             <FaPlane className="text-blue-500 mr-1" />
-                                            {card.features.flights} Flights
+                                            {pkg.features.flights} Flights
                                         </div>
                                         <div className="flex items-center">
                                             <FaHotel className="text-blue-500 mr-1" />
-                                            {card.features.hotels} Hotel
+                                            {pkg.features.hotels} Hotel
                                         </div>
                                     </div>
-                                    <div className="text-blue-500 text-sm font-bold mb-3">{card.price}</div>
+                                    <p>
+                                        <span className="text-blue-500 line-through">₹{pkg.originalPrice}</span>{" "}
+                                        <span className="font-semibold">₹{pkg.discountedPrice}</span>
+                                    </p>
                                     <div className="flex justify-between space-x-2">
-                                        <button className="w-1/2 bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 transition">
+                                        <button className="w-1/2 bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 transition">
                                             Book Now
                                         </button>
                                         <button
                                             className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition"
-                                            onClick={() => navigate(`/ViewDetails/${card.id}`)}
+                                            onClick={() => navigate(`/ViewDetails/${pkg.id}`)}
                                         >
                                             View
                                         </button>

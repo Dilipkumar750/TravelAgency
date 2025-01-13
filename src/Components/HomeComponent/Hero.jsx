@@ -10,15 +10,6 @@ import { IoSearchSharp } from "react-icons/io5";
 import home from "../../assets/herov6.mp4";
 
 const Hero = () => {
-  const [startDate, setStartDate] = useState("");
-
-  const handleDateChange = (event) => {
-    const selectedDate = event.target.value;
-    setStartDate(selectedDate);
-  };
-
-  const today = new Date().toISOString().split("T")[0];
-
   return (
     <div className="h-[450px] w-full relative z-10">
       {/* Background Video */}
@@ -91,78 +82,84 @@ const EnquiryModal = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    if (typeof localStorage !== "undefined") {
-      const isDismissed = localStorage.getItem("enquiryDismissed");
-      const isSubmitted = localStorage.getItem("enquirySubmitted");
-
-      if (!isDismissed && !isSubmitted) {
-        const timer = setTimeout(() => {
-          setShowModal(true);
-        }, 3000);
-
-        return () => clearTimeout(timer);
-      }
+    const isModalDismissed = localStorage.getItem("enquiryDismissed");
+    console.log("Modal dismissed state:", isModalDismissed); // Log to check if modal was dismissed
+    if (!isModalDismissed) {
+      const timer = setTimeout(() => {
+        console.log("Showing modal after 3 seconds"); // Log to confirm timeout triggers
+        setShowModal(true);
+      }, 3000);
+      return () => clearTimeout(timer);
     }
   }, []);
 
   const handleDismiss = () => {
+    console.log("Modal dismissed"); // Log when dismiss button is clicked
     setShowModal(false);
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("enquiryDismissed", "true");
-    }
+    localStorage.setItem("enquiryDismissed", "true");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Form submitted"); // Log on form submission
     setShowModal(false);
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("enquirySubmitted", "true");
-    }
+    localStorage.setItem("enquiryDismissed", "true");
   };
 
   return (
-    <div>
+    <>
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-96 sm:w-80">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Enquiry Form</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
+        <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-4 sm:p-20">
+          <div className="relative bg-white rounded-xl shadow-2xl p-8 w-full max-w-md">
+            {/* Close Icon */}
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              onClick={handleDismiss}
+            >
+              &times;
+            </button>
+
+            {/* Modal Content */}
+            <h2 className="text-2xl font-bold text-blue-600 text-center mb-2">
+              Plan Your Dream Vacation
+            </h2>
+            <p className="text-center text-gray-500 text-sm mb-4">
+              Fill in the details below to create your personalized travel plan!
+            </p>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                  Name
+                </label>
                 <input
                   type="text"
-                  placeholder="Your Name"
+                  className="mt-2 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
+                  placeholder="Enter your name"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
               </div>
-              <div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                  Phone
+                </label>
                 <input
-                  type="email"
-                  placeholder="Your Email"
+                  type="text"
+                  className="mt-2 w-full border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
+                  placeholder="Enter your phone number"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
               </div>
-              <div className="flex justify-between items-center">
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
-                >
-                  Submit
-                </button>
-                <button
-                  type="button"
-                  onClick={handleDismiss}
-                  className="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 transition duration-200"
-                >
-                  Cancel
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-700 to-green-600 text-white font-semibold text-lg rounded-lg px-6 py-3 hover:from-blue-600 hover:to-green-500 shadow-lg"
+              >
+                Submit Enquiry
+              </button>
             </form>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

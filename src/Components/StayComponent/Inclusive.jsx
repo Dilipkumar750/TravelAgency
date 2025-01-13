@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach } from "react-icons/fa";
+import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach, FaPhoneAlt } from "react-icons/fa";
 
 import beach1 from "../../assets/beach1.png";
 import beach2 from "../../assets/beach2.png";
@@ -14,7 +14,8 @@ const cards = [
     {
         id: 1,
         title: "Swiss Alps",
-        price: "₹88,952",
+        originalPrice: "₹1,00,000",
+        discountedPrice: "₹88,952",
         rating: "4.7",
         duration: "3 Days 4 Nights",
         description: "Tour combo with return airport transfer, City Tour, Curious Corner",
@@ -24,7 +25,8 @@ const cards = [
     {
         id: 2,
         title: "Maldives Escape",
-        price: "₹1,12,000",
+        originalPrice: "₹1,25,000",
+        discountedPrice: "₹1,12,000",
         rating: "4.9",
         duration: "5 Days 6 Nights",
         description: "Luxury resort, snorkeling experience, full board meals",
@@ -34,7 +36,8 @@ const cards = [
     {
         id: 3,
         title: "Bora Bora Retreat",
-        price: "₹1,30,000",
+        originalPrice: "₹1,50,000",
+        discountedPrice: "₹1,30,000",
         rating: "5.0",
         duration: "4 Days 5 Nights",
         description: "All-inclusive water villa, spa access, private tours",
@@ -44,7 +47,8 @@ const cards = [
     {
         id: 4,
         title: "Santorini Bliss",
-        price: "₹75,000",
+        originalPrice: "₹90,000",
+        discountedPrice: "₹75,000",
         rating: "4.8",
         duration: "3 Days 4 Nights",
         description: "Private sunset cruise, wine tasting, luxury stay",
@@ -54,7 +58,8 @@ const cards = [
     {
         id: 5,
         title: "Hawaii Adventure",
-        price: "₹95,000",
+        originalPrice: "₹1,10,000",
+        discountedPrice: "₹95,000",
         rating: "4.6",
         duration: "6 Days 7 Nights",
         description: "Surfing lessons, volcano tours, beach stay",
@@ -64,7 +69,8 @@ const cards = [
     {
         id: 6,
         title: "Goa Getaway",
-        price: "₹60,000",
+        originalPrice: "₹70,000",
+        discountedPrice: "₹60,000",
         rating: "4.5",
         duration: "4 Days 5 Nights",
         description: "Beach stay, water sports, nightlife tours",
@@ -74,7 +80,8 @@ const cards = [
     {
         id: 7,
         title: "Koh Samui Retreat",
-        price: "₹1,05,000",
+        originalPrice: "₹1,20,000",
+        discountedPrice: "₹1,05,000",
         rating: "4.9",
         duration: "5 Days 6 Nights",
         description: "Private tours, luxury stay, scenic beaches",
@@ -84,7 +91,8 @@ const cards = [
     {
         id: 8,
         title: "Phuket Escape",
-        price: "₹90,000",
+        originalPrice: "₹1,00,000",
+        discountedPrice: "₹90,000",
         rating: "4.8",
         duration: "5 Days 6 Nights",
         description: "Island hopping, snorkeling, luxury beachfront stay",
@@ -95,7 +103,11 @@ const cards = [
 
 const Inclusive = () => {
     const [showAll, setShowAll] = useState(false);
-
+    const handleRequestCallbackClick = () => {
+        // Send WhatsApp message saying "Customer is waiting for your response"
+        const message = "Customer is waiting for your response";
+        window.open(`https://wa.me/9566794685?text=${encodeURIComponent(message)}`, "_blank");
+    };
     const toggleShowMore = () => {
         setShowAll(!showAll);
     };
@@ -143,7 +155,19 @@ const Inclusive = () => {
                             </div>
 
                             <div className="font-bold text-lg text-blue-500">
-                                {card.price}
+                                <span className="line-through text-xs text-gray-500 mr-2">{card.originalPrice}</span>
+                                {card.discountedPrice}
+                            </div>
+
+                            <div className="flex gap-5 bottom-0">
+                                <div className="bottom-0">
+                                    <button
+                                        onClick={handleRequestCallbackClick}
+                                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center"
+                                    >
+                                        Request Call Back
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,7 +183,6 @@ const Inclusive = () => {
                     {showAll ? "Show Less" : "Show More"}
                 </button>
             </div>
-
         </div>
     );
 };

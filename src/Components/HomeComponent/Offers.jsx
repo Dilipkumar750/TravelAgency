@@ -1,33 +1,33 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/autoplay"; // Import autoplay styles
-import { Autoplay } from "swiper/modules"; // Import autoplay module
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
 import offer1 from "../../assets/offer1.png";
 import offer2 from "../../assets/offer2.png";
 import offer3 from "../../assets/offer5.jpg";
 import offer4 from "../../assets/offer6.jpg";
 import { FaStar } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
+// Star Rating Component
 const StarRating = ({ rating }) => {
   return (
     <div className="flex items-center mt-2">
       {[...Array(5)].map((_, index) => (
         <FaStar
           key={index}
-          className={
-            index < rating ? "text-yellow-400" : "text-gray-300"
-          }
+          className={index < rating ? "text-yellow-400" : "text-gray-300"}
         />
       ))}
     </div>
   );
 };
 
-const OfferCard = ({ image, title, description, detail, rating, linkText, linkHref }) => {
+// Offer Card Component
+const OfferCard = ({ image, title, description, detail, rating, linkText }) => {
   return (
-    <div className="rounded-xl shadow-2xl overflow-hidden bg-white flex flex-col md:flex-row mb-6 transform transition-all hover:scale-105 hover:shadow-xl h-[260px] border-2 ">
-      {/* Image */}
+    <div className="rounded-xl shadow-2xl overflow-hidden bg-white flex flex-col md:flex-row mb-6 transform transition-all hover:scale-105 hover:shadow-xl h-[260px] border-2">
       <img
         className="h-48 w-full object-cover md:w-48 md:h-full"
         src={image}
@@ -42,41 +42,40 @@ const OfferCard = ({ image, title, description, detail, rating, linkText, linkHr
         </p>
         <p className="mt-2 text-gray-500 text-xs">{detail}</p>
         <StarRating rating={rating} />
-        <a
-          href={linkHref}
-          className="mt-4  text-white py-2 rounded-lg text-center bg-indigo-700 transition"
+        <Link
+          to="/Contact"
+          className="mt-4 text-white py-2 rounded-lg text-center bg-indigo-700 transition hover:bg-indigo-800"
         >
           {linkText}
-        </a>
+        </Link>
       </div>
     </div>
   );
 };
 
+// Offers Component with Swiper Slider
 const Offers = () => {
   return (
-    <div className="max-w-[1400px] mx-20 p-5">
+    <div className="max-w-[1400px] mx-auto p-5">
       <h2 className="text-3xl font-extrabold mb-16 text-center text-black">
         🌟 Exclusive Offers 🌟
       </h2>
 
-      {/* Swiper Component to enable swipe effect */}
       <Swiper
         spaceBetween={20}
         slidesPerView={1.2}
         loop={true}
         autoplay={{
-          delay: 3000, // Adjust delay in milliseconds (3000ms = 3s)
-          disableOnInteraction: false, // Keep autoplay running after interaction
+          delay: 3000,
+          disableOnInteraction: false,
         }}
         breakpoints={{
           640: { slidesPerView: 1.5 },
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        modules={[Autoplay]} // Add the autoplay module
+        modules={[Autoplay]}
       >
-        {/* Slide 1 */}
         <SwiperSlide>
           <OfferCard
             image={offer1}
@@ -85,11 +84,9 @@ const Offers = () => {
             detail="Save up to 30% on early bookings."
             rating={4}
             linkText="Book Now"
-            linkHref="#"
           />
         </SwiperSlide>
 
-        {/* Slide 2 */}
         <SwiperSlide>
           <OfferCard
             image={offer2}
@@ -98,11 +95,9 @@ const Offers = () => {
             detail="Includes free breakfast at select hotels."
             rating={5}
             linkText="Book Now"
-            linkHref="#"
           />
         </SwiperSlide>
 
-        {/* Slide 3 */}
         <SwiperSlide>
           <OfferCard
             image={offer3}
@@ -111,11 +106,9 @@ const Offers = () => {
             detail="Limited-time offers for group bookings."
             rating={3}
             linkText="Book Now"
-            linkHref="#"
           />
         </SwiperSlide>
 
-        {/* Slide 4 - New Kashmir Image */}
         <SwiperSlide>
           <OfferCard
             image={offer4}
@@ -124,7 +117,6 @@ const Offers = () => {
             detail="Stay in houseboats at discounted rates."
             rating={4}
             linkText="Book Now"
-            linkHref="#"
           />
         </SwiperSlide>
       </Swiper>

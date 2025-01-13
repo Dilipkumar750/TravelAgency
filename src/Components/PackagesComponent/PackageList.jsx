@@ -9,7 +9,6 @@ import singapore from "../../assets/singapore.jpeg";
 import ooty from "../../assets/ooty.jpeg";
 import kashmir from "../../assets/kashmir.jpeg";
 
-// Packages Data
 const packagesData = [
   { id: 1, title: "Darjeeling, India", category: "India", duration: "3 Nights, 4 Days", image: darjeeling, description: "Explore tea gardens.", price: "₹15,000", features: { flights: "No", hotels: "Yes", transfers: "Yes", activities: "Optional" } },
   { id: 2, title: "Goa, India", category: "India", duration: "3 Nights, 4 Days", image: goa, description: "Sunny beaches and nightlife.", price: "₹20,000", features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Beach" } },
@@ -25,7 +24,6 @@ const PackageList = () => {
   const [category, setCategory] = useState("All");
   const [showAll, setShowAll] = useState(false);
 
-  // Filter cards based on category
   const filteredPackages = packagesData.filter((pkg) =>
     category === "All" ? true : pkg.category === category
   );
@@ -34,12 +32,11 @@ const PackageList = () => {
 
   const handleCategoryClick = (btn) => {
     setCategory(btn);
-    setShowAll(false); // Reset to default when switching category
+    setShowAll(false); 
   };
 
   return (
     <div className="p-4 sm:p-6 lg:p-10 mt-10">
-      {/* Toggle Buttons */}
       <div className="flex justify-center mb-6 space-x-2 sm:space-x-4">
         {["All", "India", "International"].map((btn) => (
           <button
@@ -56,7 +53,6 @@ const PackageList = () => {
         ))}
       </div>
 
-      {/* Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {cardsToShow.map((card) => (
           <div
@@ -90,9 +86,8 @@ const PackageList = () => {
                 {card.price}
               </div>
 
-              {/* Buttons */}
               <div className="flex justify-between space-x-2">
-                <button className="w-1/2 bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 transition">
+                <button className="w-1/2 bg-blue-500 text-white px-2 py-1 rounded hover:bg-green-600 transition">
                   Book Now
                 </button>
                 <button className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition">
@@ -104,7 +99,6 @@ const PackageList = () => {
         ))}
       </div>
 
-      {/* Show More/Show Less Buttons */}
       {filteredPackages.length > 4 && (
         <div className="flex justify-center mt-6">
           {showAll ? (

@@ -2,7 +2,8 @@ import React from "react";
 import bali from "../../assets/bali3.png";
 import effiel from "../../assets/eifel.jpg";
 import maldives from "../../assets/maldives1.jpg";
-import sydney from "../../assets/sydney.jpeg"; // Added a new destination image
+import sydney from "../../assets/sydney.jpeg"; 
+import { Link } from "react-router-dom";
 
 const Top = () => {
   return (
@@ -13,8 +14,8 @@ const Top = () => {
           <a href="#" className="font-semibold inline-block">
             Top Vacation Destinations
           </a>
-        </div>
-        <a href="#">See All</a>
+        </div> 
+        <Link to="./Destinations">See All</Link>
       </div>
 
       {/* Vacation Destinations Grid */}

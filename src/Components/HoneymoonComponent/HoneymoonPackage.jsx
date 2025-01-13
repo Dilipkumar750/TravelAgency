@@ -84,12 +84,15 @@ const HoneymoonPackage = () => {
                                 </div>
 
                                 <div className="flex justify-between space-x-2">
-                                    <button className="w-1/2 bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 transition">
+                                    <button className="w-1/2 bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 transition">
                                         Book Now
                                     </button>
-                                    <button className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition">
-                                        View
-                                    </button>
+                                    <button
+                                            className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition"
+                                            onClick={() => navigate(`/HoneymoonViewdetails/${pkg.id}`)}
+                                        >
+                                            View
+                                        </button>
                                 </div>
                             </div>
                         </div>
