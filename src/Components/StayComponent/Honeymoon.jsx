@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach } from "react-icons/fa";
+import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach, FaPhoneAlt } from "react-icons/fa";
 
 import beach1 from "../../assets/honey1.png";
 import beach2 from "../../assets/honey2.png";
@@ -12,6 +12,7 @@ import beach3 from "../../assets/honey3.png";
 import beach4 from "../../assets/honey4.png";
 import beach5 from "../../assets/honey5.jpeg";
 
+// Card Data
 const cards = [
   {
     id: 1,
@@ -70,10 +71,6 @@ const cards = [
   },
 ];
 
-const calculateDiscountPercentage = (originalPrice, discountPrice) => {
-  return Math.round(((originalPrice - discountPrice) / originalPrice) * 100);
-};
-
 const Honeymoon = () => {
   const swiperRef = useRef(null);
 
@@ -86,9 +83,18 @@ const Honeymoon = () => {
     }
   };
 
+  const handleCallClick = () => {
+    window.location.href = "tel:+9566794685";
+  };
+
+  const handleRequestCallbackClick = () => {
+    const message = "Customer is waiting for your response";
+    window.open(`https://wa.me/9566794685?text=${encodeURIComponent(message)}`, "_blank");
+  };
+
   return (
-    <div className="max-w-screen-xl mx-auto p-5">
-      <h2 className="text-3xl font-bold mb-6 text-center">Explore Popular Beach Packages</h2>
+    <div className="max-w-screen-xl mx-auto p-5 mt-10">
+      <h2 className="text-3xl font-bold mb-6 text-center">Explore Popular Honeymoon Packages</h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
@@ -105,37 +111,27 @@ const Honeymoon = () => {
         className="rounded-xl"
       >
         {cards.map((card) => {
-          const discountPercentage = calculateDiscountPercentage(card.originalPrice, card.discountPrice);
+          const savings = card.originalPrice - card.discountPrice;
+          const savingsPercentage = ((savings / card.originalPrice) * 100).toFixed(1);
+
           return (
             <SwiperSlide key={card.id}>
               <div
-                className="max-w-sm mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg cursor-pointer"
+                className="max-w-sm mx-auto rounded-md overflow-hidden shadow-2xl hover:shadow-lg cursor-pointer"
                 onClick={handleCardClick}
               >
                 <div className="relative">
-                  <div className="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 rounded-md text-sm font-medium">
+                  <img className="w-full h-48 object-cover" src={card.image} alt={card.title} />
+                  <div className="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">
                     {card.rating} ★
                   </div>
-                  <div
-                    className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black via-transparent to-transparent"
-                  />
-                </div>  
+                </div>
+                <div className="p-4 bg-white">
+                  <h3 className="text-lg font-medium mb-2">{card.title}</h3>
+                  <p className="text-gray-600 text-sm mb-2">{card.duration}</p>
+                  <p className="text-gray-600 text-xs mb-4">{card.description}</p>
 
-                <div
-                  className="p-4 bg-white relative z-10"
-                  style={{
-                    backgroundImage: `url(${card.image})`,
-                    backgroundPosition: 'center bottom', 
-                    backgroundSize: 'cover', 
-                    backgroundRepeat: 'no-repeat',
-                  }}
-                >
-                  <h3 className="text-lg font-medium mb-2 text-white">{card.title}</h3>
-                  <p className="text-white text-sm mb-2">{card.duration}</p>
-                  <p className="text-white text-xs mb-4">{card.description}</p>
-
-                  {/* Features */}
-                  <div className="grid grid-cols-2 gap-2 mb-4 text-white text-sm">
+                  <div className="grid grid-cols-2 gap-2 mb-4 text-gray-600 text-sm">
                     <div className="flex items-center">
                       <FaPlane className="text-blue-500 mr-2" /> {card.features.flights} Flights
                     </div>
@@ -150,25 +146,38 @@ const Honeymoon = () => {
                     </div>
                   </div>
 
-                  <div className="flex">
-                    <div className="items-center justify-between mb-2">
-                      <span className="line-through text-gray-500">{`₹${card.originalPrice.toLocaleString()}`}</span>
-                      <span className="font-bold text-lg text-blue-500">{`₹${card.discountPrice.toLocaleString()}`}</span>
+                  <div className="mb-4">
+                    <span className="text-sm text-gray-500 line-through">
+                      ₹{card.originalPrice.toLocaleString()}
+                    </span>
+                    <br />
+                    <div className="flex gap-1">
+                      <span className="font-bold text-lg text-blue-500">
+                        ₹{card.discountPrice.toLocaleString()}
+                      </span>
+                      <p className="text-green-500 text-sm font-medium">
+                        Save ₹{savings.toLocaleString()} ({savingsPercentage}%)
+                      </p>
+                    </div>
+                  </div>
 
-                      <div className="text-xs text-red-500 font-medium mb-4">
-                        Save {discountPercentage}% Off
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between mx-auto">
-                      <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                        Book Now
-                      </button>
-                    </div>
+                  <div className="flex gap-5">
+                    <button
+                      onClick={handleCallClick}
+                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center"
+                    >
+                      <FaPhoneAlt className="mr-2" />
+               
+                    </button>
+                    <button
+                      onClick={handleRequestCallbackClick}
+                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center"
+                    >
+                      Request Call Back
+                    </button>
                   </div>
                 </div>
               </div>
-
-
             </SwiperSlide>
           );
         })}

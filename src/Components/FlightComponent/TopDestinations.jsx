@@ -154,7 +154,7 @@ const TopDest = () => {
     const [days, setDays] = useState([]);
     const [ratings, setRatings] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 8;
+    const itemsPerPage = 12;
 
     const budgetOptions = [
         { label: "Below \u20B950K", range: [0, 50000] },
@@ -232,7 +232,7 @@ const TopDest = () => {
                 />
             </div>
 
-            <div className="flex flex-col md:flex-row h-screen overflow-y-auto">
+            <div className="flex flex-col md:flex-row h-[900px] overflow-y-auto">
                 {/* Filters Section */}
                 <div className="w-full md:w-1/5 bg-white p-6 rounded-lg shadow-lg sticky top-0">
                     <h2 className="text-xl font-semibold text-gray-800 mb-6">Filters</h2>

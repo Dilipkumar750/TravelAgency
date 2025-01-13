@@ -1,20 +1,69 @@
 import React from 'react';
 import hill from '../../assets/fall.jpg';
 import Aboutimg from '../../assets/about image1.jpg';
-import friends from '../../assets/Happy friends.webp';
+import friends from '../../assets/happy friends.webp';
 import summer from '../../assets/summer.avif';
 import vision from '../../assets/vision.jpeg';
 import mission from '../../assets/mission.jpeg';
-import Quotesimg from '../../assets/Quotesimg.jpg';
-import handsh from '../../assets/handsh-removebg-preview.png';
-import educate from '../../assets/educate-removebg-preview.png';
-import buildtours from '../../assets/buildtours-removebg-preview.png';
-import uniques from '../../assets/uniques-removebg-preview.png';
+import Quotesimg from '../../assets/quotesimg.jpg';
+import { FaUserAlt, FaSuitcase, FaGlobeAmericas, FaPhoneAlt, FaUserTie, FaUserShield } from "react-icons/fa";
 
 const About = () => {
+  const teamMembers = [
+    {
+      id: 1,
+      name: "John Doe",
+      role: "CEO",
+      image: "https://spacema-dev.com/elevate/assets/images/team/1.jpg",
+      icon: <FaUserTie />,
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      role: "Managing Director",
+      image: "https://spacema-dev.com/elevate/assets/images/team/2.jpg",
+      icon: <FaUserTie />,
+    },
+    {
+      id: 3,
+      name: "Alex Johnson",
+      role: "Customer Support",
+      image: "https://spacema-dev.com/elevate/assets/images/team/3.jpg",
+      icon: <FaPhoneAlt />,
+    },
+    {
+      id: 4,
+      name: "Emily Brown",
+      role: "Customer Support",
+      image: "https://spacema-dev.com/elevate/assets/images/team/4.jpg",
+      icon: <FaPhoneAlt />,
+    },
+    {
+      id: 5,
+      name: "Michael Davis",
+      role: "Tour Guide",
+      image: "https://spacema-dev.com/elevate/assets/images/team/5.jpg",
+      icon: <FaGlobeAmericas />,
+    },
+    {
+      id: 6,
+      name: "Sarah Johnson",
+      role: "Consultant",
+      image: "https://spacema-dev.com/elevate/assets/images/team/6.jpg",
+      icon: <FaSuitcase />,
+    },
+    {
+      id: 7,
+      name: "David Wilson",
+      role: "Manager",
+      image: "https://spacema-dev.com/elevate/assets/images/team/7.jpg",
+      icon: <FaUserShield />,
+    },
+  ];
+
   return (
-    <>
-      {/* Top Image Section with Text and Button */}
+    <>  
+      {/* Hero Section */}
       <div
         style={{
           backgroundImage: `url(${hill})`,
@@ -29,123 +78,86 @@ const About = () => {
           textAlign: 'center',
         }}
       >
-        <div className='border-2px solid black bg-black/50 p-6 rounded-xl'>
-          <p className="text-3xl font-bold text-orange-300">Take Your Memorable Journey with Us..</p>
-          <h1 className="text-4xl font-semibold mt-2 ">Take a Look at Most Popular Hotels and Places</h1>
-          <button className="mt-4 px-6 py-2 bg-yellow-500 text-white rounded-md">Book Now</button>
+        <div className='bg-black/50 p-8 rounded-xl'>
+          <h1 className="text-5xl font-bold leading-tight">
+            Crafting Unforgettable Journeys
+          </h1>
+          <p className="text-lg text-gray-300 mt-4 max-w-2xl">
+            Explore breathtaking destinations with personalized experiences. Let Tentwood Trips turn your travel dreams into reality.
+          </p>
+          <button className="mt-6 px-8 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition">
+            Start Your Adventure
+          </button>
         </div>
       </div>
 
-      {/* Header Section */}
-      <div className="px-4 md:px-8 lg:px-16 mt-7 flex flex-col lg:flex-row gap-10 justify-center items-center lg:items-start max-w-screen-xl mx-auto">
-        <div className="text-center lg:text-left">
-          <h1 className="text-2xl text-gray-500">Tentwood Trips</h1>
-          <p className="text-3xl md:text-4xl font-medium mt-2">A Dream Born in Passion:</p>
-          <p className="text-3xl md:text-4xl font-medium">
-            Making your <span className="text-gray-500">Holidays memorable</span>
+      {/* About Content Section */}
+      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div>
+          <h2 className="text-4xl font-bold text-gray-800">
+            Discover the World with Tentwood Trips
+          </h2>
+          <p className="text-gray-600 mt-6 leading-relaxed">
+            At Tentwood Trips, we create personalized travel experiences for every type of traveler. Whether you seek peaceful luxury retreats or thrilling adventures, each journey is designed with care and precision.
+            We believe travel is about making unforgettable memories and meaningful connections. Our expert team crafts itineraries that reflect your unique interests for a seamless and exciting trip.
+            Discover stunning destinations, from hidden gems to famous landmarks, all with thoughtfully planned travel. Relax on pristine beaches, explore rugged landscapes, or dive into vibrant cultures—we make it happen.
+            Beyond planning, we focus on authentic experiences, sustainable tourism, and connecting with local communities. With Tentwood Trips, every journey becomes a story worth sharing.
           </p>
-          <img
-            src={Aboutimg}
-            alt="About"
-            className="mt-10 w-60 max-w-lg mx-auto lg:mx-0 h-auto"
-          />
+          <button className='mt-6 px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition'>
+            Book Your Trip
+          </button>
         </div>
-        <div className="text-center lg:text-left">
-          <strong className="text-xl md:text-2xl">Who we are:</strong>
-          <p className="text-gray-500 leading-6 text-justify mt-4 max-w-lg mx-auto lg:mx-0">
-            Tentwood Trips is the leading B2B tour operator that offers a wide range of travel
-            solutions to help travel agents grow their sales. We see the world through a different
-            lens and customize tour packages that accomplish your customer's unique travel needs.
-          </p>
-          <img
-            src={friends}
-            alt="Friends"
-            className="mt-12 w-full max-w-lg mx-auto lg:mx-0 h-auto object-cover"
-          />
-        </div>
-        <div className="text-center lg:text-left">
-          <strong className="text-xl md:text-2xl">What we do:</strong>
-          <p className="text-gray-500 leading-6 text-justify mt-4 max-w-lg mx-auto lg:mx-0">
-            Since 2019, we have proudly crafted custom travel packages to ensure unforgettable
-            experiences. Our offerings include family trips, group tours, luxury retreats, special
-            occasion tours and more—designed to meet unique travel needs and create lifelong memories.
-          </p>
-          <img
-            src={summer}
-            alt="Summer"
-            className="mt-12 w-full max-w-lg mx-auto lg:mx-0 h-40 object-cover"
-          />
+        <div className="grid grid-cols-2 gap-4">
+          <img src={Aboutimg} alt="About" className="rounded-xl shadow-lg object-cover h-48 w-full" />
+          <img src={friends} alt="Friends" className="rounded-xl shadow-lg object-cover h-48 w-full" />
+          <img src={summer} alt="Summer" className="rounded-xl shadow-lg object-cover h-48 w-full" />
+          <img src={Quotesimg} alt="Quotes" className="rounded-xl shadow-lg object-cover h-48 w-full" />
         </div>
       </div>
 
       {/* Vision and Mission Section */}
-      <div className="px-4 md:px-8 lg:px-16 mt-10 flex flex-col lg:flex-row gap-10 lg:gap-16 justify-center items-center max-w-screen-xl mx-auto">
-        <div className="text-center lg:text-left">
-          <img src={vision} alt="Vision" className="mt-6 h-auto mx-auto rounded-3xl max-w-sm" />
-          <p className="text-xl md:text-2xl font-medium mt-5 text-center">
-            A World Transformed by Travel
-          </p>
-          <p className="text-gray-600 mt-5 text-justify text-sm md:text-base border-2 border-gray-300 p-5 rounded-md max-w-lg mx-auto lg:mx-0">
-            Our vision is to be a global leader in purposeful travel, where every journey not only
-            enriches the lives of our travelers but also brings hope and support to those in need.
-            We envision a world where exploration and compassion go hand in hand, creating a ripple
-            effect of positive change. By partnering with local communities, we aim to transform
-            lives—one trip, one meal, one smile at a time.
-          </p>
-        </div>
-        <div className="text-center">
-          <img
-            src={Quotesimg}
-            alt="Quotes"
-            className="mt-12 rounded-lg w-full max-w-md"
-          />
-        </div>
-        <div className="text-center lg:text-left">
-          <img src={mission} alt="Mission" className="mt-6 h-auto mx-auto rounded-3xl max-w-sm" />
-          <p className="text-xl md:text-2xl font-medium mt-5 text-center">Travel to Transform</p>
-          <p className="text-gray-600 mt-5 text-justify text-sm md:text-base border-2 border-gray-300 p-5 rounded-md max-w-lg mx-auto lg:mx-0">
-            At Tentwood Holidays, we aim to enrich lives through travel by creating unforgettable
-            experiences that inspire and connect. We believe in making a positive impact, which is
-            why a portion of every trip booked goes towards providing nutritious meals to
-            underprivileged children, giving them the nourishment they need to thrive. Join us in
-            traveling with purpose, and together, we can make a meaningful difference in the world.
-          </p>
-        </div>
-      </div>
-
-      {/* Community Section */}
-      <div className="text-center mt-10 px-4 md:px-8 bg-yellow-50 rounded-lg max-w-screen-lg mx-auto py-10">
-        <h1 className="text-2xl md:text-3xl">Join the global community!</h1>
-        <p className="text-gray-500 mt-4">
-          To advance, guide, and inspire adventure travels to interact with nature, experience
-          culture, and do physical activity.
-        </p>
-        <p className="text-gray-700 mt-4 max-w-3xl mx-auto">
-          Our tours began in 2019, offering unique travel experiences together with our partner
-          activities, advocates, and journalists. These tours allow you to go behind the headlines
-          to meet brave women and men fighting for their communities and see a side of a country
-          outsiders never will.
-        </p>
-
-        <div className="flex flex-wrap justify-center mt-12 gap-6">
-          <div className="flex flex-col items-center mt-7">
-            <img src={handsh} width="80px" alt="Assist" />
-            <p className="text-sm mt-2">We Assist You</p>
+      <div className="bg-gray-100 py-16 p-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-6">
+          <div className="text-center">
+            <img src={vision} alt="Vision" className="mx-auto rounded-lg w-64 h-64 object-cover shadow-md" />
+            <h3 className="text-2xl font-semibold mt-6">Our Vision</h3>
+            <p className="text-gray-600 mt-4 px-4">
+              To become the most trusted travel partner, inspiring explorers to discover the world’s wonders and create lasting memories.
+            </p>
           </div>
-          <div className="flex flex-col items-center">
-            <img src={educate} width="80px" alt="Educate" />
-            <p className="text-sm mt-2">We Educate You</p>
-          </div>
-          <div className="flex flex-col items-center mt-5">
-            <img src={buildtours} width="80px" alt="Build Tours" />
-            <p className="text-sm mt-2">We Build Tours</p>
-          </div>
-          <div className="flex flex-col items-center mt-7">
-            <img src={uniques} width="80px" alt="Unique Experiences" />
-            <p className="text-sm mt-2">Unique Experiences</p>
+          <div className="text-center">
+            <img src={mission} alt="Mission" className="mx-auto rounded-lg w-64 h-64 object-cover shadow-md" />
+            <h3 className="text-2xl font-semibold mt-6">Our Mission</h3>
+            <p className="text-gray-600 mt-4 px-4">
+              To deliver seamless, enriching, and sustainable travel experiences that connect people with diverse cultures and destinations.
+            </p>
           </div>
         </div>
       </div>
+
+      {/* Team Section */}
+      <section id="our-team" className="bg-black py-32">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8 text-white">Meet Our Team</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member) => (
+              <div
+                key={member.id}
+                className="bg-white rounded-lg shadow-md p-6 my-6 text-center"
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full rounded-full mb-4"
+                />
+                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+                <p className="text-gray-700">{member.role}</p>
+                <div className="text-gray-600 text-xl mt-2">{member.icon}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };
