@@ -7,9 +7,9 @@ import {
   FaMapMarkedAlt,
 } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
-import home from "../../assets/herov4.mp4";
+import home from "../../assets/vhero3.mp4";
 
-const stayhero = () => {
+const PilgrimageHero = () => {
   const [startDate, setStartDate] = useState("");
 
   const handleDateChange = (event) => {
@@ -62,7 +62,7 @@ const stayhero = () => {
       </div>
 
       {/* Trust Media Section */}
-      <div className="bg-gradient-to-r from-black via-blue-400 to-black px-24 py-4 flex items-center justify-around flex-wrap text-white">
+      <div className="bg-black px-24 py-4 flex items-center justify-around flex-wrap text-white">
         <div className="flex items-center gap-4">
           <FaStar className="text-2xl text-[#00ffc8]" />
           <span className="text-sm font-semibold">4.6 Rated</span>
@@ -166,4 +166,4 @@ const EnquiryModal = () => {
   );
 };
 
-export default stayhero;
+export default PilgrimageHero;

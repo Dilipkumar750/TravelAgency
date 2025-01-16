@@ -1,13 +1,10 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules"; // Import Autoplay module
-
-// Swiper styles
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-// Updated Images
+import bg from "../../assets/flightbg.png";
 import india from "../../assets/india.jpeg";
 import travelTalk from "../../assets/traveltalk.jpeg";
 import beach from "../../assets/beach.jpeg";
@@ -31,31 +28,30 @@ const contentItems = [
 
 const Connection = () => {
   return (
-    <div>
-      <h1 className="text-center text-4xl font-bold mt-16 mb-8">
-        Connect with Honeymoon packages in Worldwide
+    <div className="py-16">
+      <h1 className="text-center text-4xl font-bold text-black mb-8 drop-shadow-lg">
+        Connect with Honeymoon Packages Worldwide
       </h1>
 
-      {/* Swiper Carousel */}
-    <Link to="/honeymoonHome">
-        <div className="max-w-screen-xl mx-auto p-5">
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]} 
-            spaceBetween={20}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 2000, disableOnInteraction: false }} 
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              768: { slidesPerView: 3 },
-              1024: { slidesPerView: 4 },
-            }}
-            className="rounded-2xl"
-          >
-            {contentItems.map((item) => (
-              <SwiperSlide key={item.id}>
-                <div className="rounded-2xl overflow-hidden shadow-lg relative group">
+      <div className="max-w-screen-xl mx-auto p-5">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+          }}
+          className="rounded-2xl"
+        >
+          {contentItems.map((item) => (
+            <SwiperSlide key={item.id}>
+              <Link to="/honeymoonHome">
+                <div className="rounded-2xl overflow-hidden shadow-lg relative group cursor-pointer">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -66,11 +62,11 @@ const Connection = () => {
                     <p className="text-sm">{item.travelers}</p>
                   </div>
                 </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-    </Link>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

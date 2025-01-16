@@ -19,6 +19,8 @@
     "react-model": "^4.3.1",
     "react-router-dom": "^7.1.1",
     "react-scroll": "^1.9.0",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.15.2",
     "swiper": "^11.1.15"
   },

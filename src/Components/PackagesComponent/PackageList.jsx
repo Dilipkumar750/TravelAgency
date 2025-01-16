@@ -9,15 +9,116 @@ import singapore from "../../assets/singapore.jpeg";
 import ooty from "../../assets/ooty.jpeg";
 import kashmir from "../../assets/kashmir.jpeg";
 
+// Updated package data with more entries
 const packagesData = [
-  { id: 1, title: "Darjeeling, India", category: "India", duration: "3 Nights, 4 Days", image: darjeeling, description: "Explore tea gardens.", price: "₹15,000", features: { flights: "No", hotels: "Yes", transfers: "Yes", activities: "Optional" } },
-  { id: 2, title: "Goa, India", category: "India", duration: "3 Nights, 4 Days", image: goa, description: "Sunny beaches and nightlife.", price: "₹20,000", features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Beach" } },
-  { id: 3, title: "Bali, Indonesia", category: "International", duration: "5 Nights, 6 Days", image: bali2, description: "Tropical paradise.", price: "$1,200", features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Island Tour" } },
-  { id: 4, title: "Dubai, UAE", category: "International", duration: "4 Nights, 5 Days", image: dubai, description: "Luxury shopping.", price: "$1,500", features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Desert Safari" } },
-  { id: 5, title: "Kodaikanal, India", category: "India", duration: "2 Nights, 3 Days", image: kodaikanal, description: "Hills and lakes.", price: "₹18,000", features: { flights: "No", hotels: "Yes", transfers: "Yes", activities: "Lake Tour" } },
-  { id: 6, title: "Singapore", category: "International", duration: "4 Nights, 5 Days", image: singapore, description: "Modern city.", price: "$1,300", features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "City Tour" } },
-  { id: 7, title: "Ooty, India", category: "India", duration: "3 Nights, 4 Days", image: ooty, description: "Nilgiri hills.", price: "₹16,500", features: { flights: "No", hotels: "Yes", transfers: "Yes", activities: "Hill Tour" } },
-  { id: 8, title: "Kashmir, India", category: "India", duration: "3 Nights, 4 Days", image: kashmir, description: "Snowy beauty.", price: "₹22,000", features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Snow" } },
+  {
+    id: 1,
+    title: "Darjeeling, India",
+    category: "India",
+    duration: "3 Nights, 4 Days",
+    image: darjeeling,
+    description: "Explore tea gardens.",
+    originalPrice: "₹18,000",
+    discountPrice: "₹15,000",
+    discountPercentage: "16%",
+    features: { flights: "No", hotels: "Yes", transfers: "Yes", activities: "Optional" }
+  },
+  {
+    id: 2,
+    title: "Goa, India",
+    category: "India",
+    duration: "3 Nights, 4 Days",
+    image: goa,
+    description: "Sunny beaches and nightlife.",
+    originalPrice: "₹25,000",
+    discountPrice: "₹20,000",
+    discountPercentage: "20%",
+    features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Beach" }
+  },
+  {
+    id: 3,
+    title: "Bali, Indonesia",
+    category: "International",
+    duration: "5 Nights, 6 Days",
+    image: bali2,
+    description: "Tropical paradise.",
+    originalPrice: "$1,500",
+    discountPrice: "$1,200",
+    discountPercentage: "20%",
+    features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Island Tour" }
+  },
+  {
+    id: 4,
+    title: "Dubai, UAE",
+    category: "International",
+    duration: "4 Nights, 5 Days",
+    image: dubai,
+    description: "Luxury shopping.",
+    originalPrice: "$1,800",
+    discountPrice: "$1,500",
+    discountPercentage: "16%",
+    features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Desert Safari" }
+  },
+  {
+    id: 5,
+    title: "Kodaikanal, India",
+    category: "India",
+    duration: "2 Nights, 3 Days",
+    image: kodaikanal,
+    description: "Hills and lakes.",
+    originalPrice: "₹22,000",
+    discountPrice: "₹18,000",
+    discountPercentage: "18%",
+    features: { flights: "No", hotels: "Yes", transfers: "Yes", activities: "Lake Tour" }
+  },
+  {
+    id: 6,
+    title: "Singapore",
+    category: "International",
+    duration: "4 Nights, 5 Days",
+    image: singapore,
+    description: "Modern city.",
+    originalPrice: "$1,600",
+    discountPrice: "$1,300",
+    discountPercentage: "18%",
+    features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "City Tour" }
+  },
+  {
+    id: 7,
+    title: "Ooty, India",
+    category: "India",
+    duration: "3 Nights, 4 Days",
+    image: ooty,
+    description: "Nilgiri hills.",
+    originalPrice: "₹20,000",
+    discountPrice: "₹16,500",
+    discountPercentage: "17%",
+    features: { flights: "No", hotels: "Yes", transfers: "Yes", activities: "Hill Tour" }
+  },
+  {
+    id: 8,
+    title: "Kashmir, India",
+    category: "India",
+    duration: "3 Nights, 4 Days",
+    image: kashmir,
+    description: "Snowy beauty.",
+    originalPrice: "₹26,000",
+    discountPrice: "₹22,000",
+    discountPercentage: "15%",
+    features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Snow" }
+  },
+  {
+    id: 9,
+    title: "Maldives",
+    category: "International",
+    duration: "5 Nights, 6 Days",
+    image: bali2,
+    description: "Luxury water villas.",
+    originalPrice: "$2,200",
+    discountPrice: "$1,800",
+    discountPercentage: "18%",
+    features: { flights: "Yes", hotels: "Yes", transfers: "Yes", activities: "Water Sports" }
+  }
 ];
 
 const PackageList = () => {
@@ -28,24 +129,23 @@ const PackageList = () => {
     category === "All" ? true : pkg.category === category
   );
 
-  const cardsToShow = showAll ? filteredPackages : filteredPackages.slice(0, 4);
+  const cardsToShow = showAll ? filteredPackages : filteredPackages.slice(0, 8);
 
   const handleCategoryClick = (btn) => {
     setCategory(btn);
-    setShowAll(false); 
+    setShowAll(false);
   };
 
   return (
     <div className="p-4 sm:p-6 lg:p-10 mt-10">
+      {/* Category Buttons */}
       <div className="flex justify-center mb-6 space-x-2 sm:space-x-4">
         {["All", "India", "International"].map((btn) => (
           <button
             key={btn}
             onClick={() => handleCategoryClick(btn)}
             className={`px-3 py-2 sm:px-4 sm:py-2 rounded-full text-sm font-semibold transition ${
-              category === btn
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              category === btn ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
           >
             {btn}
@@ -53,37 +153,19 @@ const PackageList = () => {
         ))}
       </div>
 
+      {/* Package Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {cardsToShow.map((card) => (
-          <div
-            key={card.id}
-            className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer"
-          >
-            <img
-              className="w-full h-40 sm:h-48 object-cover"
-              src={card.image}
-              alt={card.title}
-            />
-            <div className="p-3 bg-white">
-              <h3 className="text-sm sm:text-base font-medium mb-1">{card.title}</h3>
-              <p className="text-red-500 text-xs sm:text-sm font-semibold">
-                {card.duration}
-              </p>
+          <div key={card.id} className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bg-white">
+            <img className="w-full h-40 sm:h-48 object-cover" src={card.image} alt={card.title} />
+            <div className="p-3">
+              <h3 className="text-base font-medium mb-1">{card.title}</h3>
+              <p className="text-red-500 text-xs sm:text-sm font-semibold">{card.duration}</p>
               <p className="text-gray-600 text-xs mb-3">{card.description}</p>
-
-              <div className="flex justify-between text-gray-600 text-xs sm:text-sm mb-3">
-                <div className="flex items-center">
-                  <FaPlane className="text-blue-500 mr-1" />
-                  {card.features.flights} Flights
-                </div>
-                <div className="flex items-center">
-                  <FaHotel className="text-blue-500 mr-1" />
-                  {card.features.hotels} Hotel
-                </div>
-              </div>
-
-              <div className="text-blue-500 text-xs sm:text-sm font-bold mb-3">
-                {card.price}
+              <div className="flex items-center space-x-2 mb-2">
+                <span className="text-green-600 font-bold">{card.discountPrice}</span>
+                <span className="line-through text-gray-400">{card.originalPrice}</span>
+                <span className="text-red-500 text-xs">({card.discountPercentage} OFF)</span>
               </div>
 
               <div className="flex justify-between space-x-2">
@@ -99,23 +181,15 @@ const PackageList = () => {
         ))}
       </div>
 
+      {/* Show More Button */}
       {filteredPackages.length > 4 && (
         <div className="flex justify-center mt-6">
-          {showAll ? (
-            <button
-              onClick={() => setShowAll(false)}
-              className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition"
-            >
-              Show Less
-            </button>
-          ) : (
-            <button
-              onClick={() => setShowAll(true)}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-            >
-              Show More
-            </button>
-          )}
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+          >
+            {showAll ? "Show Less" : "Show More"}
+          </button>
         </div>
       )}
     </div>
