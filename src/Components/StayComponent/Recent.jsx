@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { FaPlane, FaHotel, FaCar, FaUmbrellaBeach } from "react-icons/fa";
 import Swal from "sweetalert2";
-
+import ad from "../../assets/travel.webp"
 import beach1 from "../../assets/beach1.png";
 import beach2 from "../../assets/beach2.png";
 
@@ -115,6 +115,10 @@ const Recent = () => {
               Submit Enquiry
             </button>
           </div>
+        </div>
+        <div>
+          <h1 className="text-xl font-semibold mb-2 text-center text-blue-600">New Offer Package</h1>
+          <img src={ad} alt="New Offer" className="w-80 rounded-xl" />
         </div>
       </div>
     </div>
