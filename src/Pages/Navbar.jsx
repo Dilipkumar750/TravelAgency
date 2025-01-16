@@ -76,6 +76,7 @@ const Navbar = () => {
           <Link to="/Destinations" className="hover:text-gray-800">Destinations</Link>
           <Link to="/PackagesHome" className="hover:text-gray-800">Packages</Link>
           <Link to="/HoneymoonHome" className="hover:text-gray-800">Honey Moon</Link>
+          <Link to="/PilgrimageHome" className="hover:text-gray-800">Pilgrimage</Link>
           <Link to="/Contact" className="hover:text-gray-800">Contact</Link>
         </div>
       )}
@@ -120,6 +121,7 @@ const Navbar = () => {
         <Link to="/Destinations" className="hover:text-gray-800 font-bold">Destinations</Link>
         <Link to="/PackagesHome" className="hover:text-gray-800 font-bold">Packages</Link>
         <Link to="/HoneymoonHome" className="hover:text-gray-800 font-bold">Honey Moon</Link>
+        <Link to="/PilgrimageHome" className="hover:text-gray-800 font-bold">Pilgrimage</Link>
         <Link to="/Contact" className="hover:text-gray-800 font-bold">Contact</Link>
       </div>
     </nav>
