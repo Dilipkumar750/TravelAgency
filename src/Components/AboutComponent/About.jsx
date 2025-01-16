@@ -7,56 +7,57 @@ import vision from '../../assets/vision.jpeg';
 import mission from '../../assets/mission.jpeg';
 import Quotesimg from '../../assets/quotesimg.jpg';
 import { FaUserAlt, FaSuitcase, FaGlobeAmericas, FaPhoneAlt, FaUserTie, FaUserShield } from "react-icons/fa";
-
+import sample from "../../assets/sample.webp"
+import { Link } from "react-router-dom"
 const About = () => {
   const teamMembers = [
     {
       id: 1,
       name: "John Doe",
       role: "CEO",
-      image: "https://spacema-dev.com/elevate/assets/images/team/1.jpg",
+      image: sample,
       icon: <FaUserTie />,
     },
     {
       id: 2,
       name: "Jane Smith",
       role: "Managing Director",
-      image: "https://spacema-dev.com/elevate/assets/images/team/2.jpg",
+      image: sample,
       icon: <FaUserTie />,
     },
     {
       id: 3,
       name: "Alex Johnson",
       role: "Customer Support",
-      image: "https://spacema-dev.com/elevate/assets/images/team/3.jpg",
+      image: sample,
       icon: <FaPhoneAlt />,
     },
     {
       id: 4,
       name: "Emily Brown",
       role: "Customer Support",
-      image: "https://spacema-dev.com/elevate/assets/images/team/4.jpg",
+      image: sample,
       icon: <FaPhoneAlt />,
     },
     {
       id: 5,
       name: "Michael Davis",
       role: "Tour Guide",
-      image: "https://spacema-dev.com/elevate/assets/images/team/5.jpg",
+      image: sample,
       icon: <FaGlobeAmericas />,
     },
     {
       id: 6,
       name: "Sarah Johnson",
       role: "Consultant",
-      image: "https://spacema-dev.com/elevate/assets/images/team/6.jpg",
+      image: sample,
       icon: <FaSuitcase />,
     },
     {
       id: 7,
       name: "David Wilson",
       role: "Manager",
-      image: "https://spacema-dev.com/elevate/assets/images/team/7.jpg",
+      image: sample,
       icon: <FaUserShield />,
     },
   ];
@@ -85,9 +86,11 @@ const About = () => {
           <p className="text-lg text-gray-300 mt-4 max-w-2xl">
             Explore breathtaking destinations with personalized experiences. Let Tentwood Trips turn your travel dreams into reality.
           </p>
-          <button className="mt-6 px-8 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition">
-            Start Your Adventure
-          </button>
+          <Link to="/contact">
+            <button className="mt-6 px-8 py-3 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition">
+              Start Your Adventure
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -103,9 +106,11 @@ const About = () => {
             Discover stunning destinations, from hidden gems to famous landmarks, all with thoughtfully planned travel. Relax on pristine beaches, explore rugged landscapes, or dive into vibrant cultures—we make it happen.
             Beyond planning, we focus on authentic experiences, sustainable tourism, and connecting with local communities. With Tentwood Trips, every journey becomes a story worth sharing.
           </p>
-          <button className='mt-6 px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition'>
-            Book Your Trip
-          </button>
+         <Link to="/contact">
+            <button className='mt-6 px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition'>
+              Book Your Trip
+            </button>
+         </Link>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <img src={Aboutimg} alt="About" className="rounded-xl shadow-lg object-cover h-48 w-full" />
@@ -148,7 +153,7 @@ const About = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full rounded-full mb-4"
+                  className="w-20 rounded-full mb-4"
                 />
                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
                 <p className="text-gray-700">{member.role}</p>
