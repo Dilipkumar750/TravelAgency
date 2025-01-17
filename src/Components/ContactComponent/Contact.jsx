@@ -224,6 +224,7 @@ const Contact = () => {
             className="rounded-xl "
           ></iframe>
         </div>
+
     <br/>
     <br/>
     <br/>
@@ -233,8 +234,6 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
 
 
 
