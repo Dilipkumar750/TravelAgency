@@ -10,6 +10,7 @@ import Kiribati from '../../assets/vKiribati.jpg';
 import Barbados from '../../assets/vBarbados.avif';
 import Mauritius from '../../assets/vMauritius.avif';
 import srilanka from '../../assets/vsrilanka.jpg';
+import { Link } from 'react-router-dom';
 
 const VisaFree = () => {
   const destinations = [
@@ -37,7 +38,7 @@ const VisaFree = () => {
               key={index}
               className={`relative flex flex-col overflow-hidden rounded-lg ${destination.span} bg-gray-50`}
             >
-              <a href="#" className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+              <Link to="/packageshome" className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
                 <img
                   src={destination.image}
                   alt={`Image of ${destination.name}`}
@@ -47,7 +48,7 @@ const VisaFree = () => {
                 <h3 className="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">
                   {destination.name}
                 </h3>
-              </a>
+              </Link>
             </div>
           ))}
         </div>

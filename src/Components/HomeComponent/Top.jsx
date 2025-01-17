@@ -11,9 +11,9 @@ const Top = () => {
       {/* Header Section */}
       <div className="border-b mb-5 flex justify-between text-sm">
         <div className="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
-          <a href="#" className="font-semibold inline-block">
+          <p className="font-semibold inline-block">
             Top Vacation Destinations
-          </a>
+          </p>
         </div> 
         <Link to="./Destinations">See All</Link>
       </div>
@@ -43,7 +43,7 @@ const Top = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
           <div className="absolute bottom-4 left-4 z-10 text-white">
-            <h3 className="text-2xl font-bold">Eiffel Tower Tour</h3>
+            <h3 className="text-2xl font-bold">Eiffel Tower </h3>
           </div>
         </div>
 
@@ -56,7 +56,7 @@ const Top = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
           <div className="absolute bottom-4 left-4 z-10 text-white">
-            <h3 className="text-2xl font-bold">Maldives Tropical Escape</h3>
+            <h3 className="text-2xl font-bold">Maldives Escape</h3>
           </div>
         </div>
 

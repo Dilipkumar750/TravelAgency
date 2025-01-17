@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaPlane, FaHotel } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";  // Add this import
 import darjeeling from "../../assets/darjeeling.jpeg";
 import goa from "../../assets/goa.jpeg";
 import bali2 from "../../assets/bali2.jpeg";
@@ -25,6 +26,7 @@ const HoneymoonPackage = () => {
     const [region, setRegion] = useState("All");
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
+    const navigate = useNavigate(); // Initialize the navigate function
 
     const filteredPackages = packagesData.filter((pkg) => {
         const categoryMatch = category === "All" || pkg.category === category;
@@ -88,11 +90,11 @@ const HoneymoonPackage = () => {
                                         Book Now
                                     </button>
                                     <button
-                                            className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition"
-                                            onClick={() => navigate(`/HoneymoonViewdetails/${pkg.id}`)}
-                                        >
-                                            View
-                                        </button>
+                                        className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition"
+                                        onClick={() => navigate(`/honeymoonViewDetails`)} // Use navigate here
+                                    >
+                                        View
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -152,8 +154,8 @@ const HoneymoonPackage = () => {
                                     setCurrentPage(1);
                                 }}
                                 className={`block w-full text-left px-4 py-2 mb-2 rounded-md ${region === btn
-                                        ? "bg-blue-500 text-white"
-                                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                                     }`}
                             >
                                 {btn}

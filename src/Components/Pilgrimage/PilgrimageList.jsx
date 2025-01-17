@@ -382,7 +382,7 @@ const PilgrimageList = () => {
                                 className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer"
                             >
                                 <img
-                                    className="w-full h-40 object-cover"
+                                    className="w-full h-40 object-fit"
                                     src={pkg.image}
                                     alt={pkg.title}
                                 />
@@ -410,7 +410,7 @@ const PilgrimageList = () => {
                                         </button>
                                         <button
                                             className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition"
-                                            onClick={() => navigate(`/ViewDetails/${pkg.id}`)}
+                                            onClick={() => navigate(`/PilgrimageViewdetails`)}
                                         >
                                             View
                                         </button>
