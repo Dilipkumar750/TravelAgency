@@ -4,7 +4,6 @@ const Awards = () => {
   return (
     <div>
       awards
-    
     </div>
   )
 }
