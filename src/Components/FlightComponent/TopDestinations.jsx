@@ -354,7 +354,7 @@ const TopDest = () => {
                                         </button>
                                         <button
                                             className="w-1/2 bg-gray-200 text-gray-700 px-2 py-1 rounded hover:bg-gray-300 transition"
-                                            onClick={() => navigate(`/ViewDetails/${pkg.id}`)}
+                                            onClick={() => navigate(`/ViewDetails`)}
                                         >
                                             View
                                         </button>

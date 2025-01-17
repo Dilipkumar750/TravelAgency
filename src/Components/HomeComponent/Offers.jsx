@@ -28,11 +28,20 @@ const StarRating = ({ rating }) => {
 const OfferCard = ({ image, title, description, detail, rating, linkText }) => {
   return (
     <div className="rounded-xl shadow-2xl overflow-hidden bg-white flex flex-col md:flex-row mb-6 transform transition-all hover:scale-105 hover:shadow-xl h-[260px] border-2">
-      <img
-        className="h-48 w-full object-cover md:w-48 md:h-full"
-        src={image}
-        alt={title}
-      />
+      <div className="relative">
+        <img
+          className="h-48 w-full object-cover md:w-48 md:h-full"
+          src={image}
+          alt={title}
+        />
+        {/* Rating Badge with Red Background and Star Icon */}
+        <div className="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded-full flex items-center shadow-lg">
+          <FaStar className="text-yellow-300 mr-1" />  {/* Star Icon */}
+          <span className="font-bold">{rating}.0</span> {/* Numeric Rating */}
+        </div>
+      </div>
+
+
       <div className="p-4 flex flex-col justify-between flex-1 bg-white">
         <div className="uppercase tracking-wide text-indigo-500 font-bold text-lg">
           {title}
@@ -41,7 +50,6 @@ const OfferCard = ({ image, title, description, detail, rating, linkText }) => {
           {description}
         </p>
         <p className="mt-2 text-gray-500 text-xs">{detail}</p>
-        <StarRating rating={rating} />
         <Link
           to="/Contact"
           className="mt-4 text-white py-2 rounded-lg text-center bg-indigo-700 transition hover:bg-indigo-800"
@@ -52,6 +60,7 @@ const OfferCard = ({ image, title, description, detail, rating, linkText }) => {
     </div>
   );
 };
+
 
 // Offers Component with Swiper Slider
 const Offers = () => {

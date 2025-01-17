@@ -24,6 +24,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import HoneymoonViewdetails from './Components/HoneymoonViewdetails';
 import PilgrimageHome from './Components/Pilgrimage/PilgrimageHome';
+import PilgrimageViewdetails from './Components/PilgrimageViewdetails';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -90,8 +91,8 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/ViewDetails" element={<ViewDetails />} />
         <Route path="/HoneymoonViewdetails" element={<HoneymoonViewdetails />} />
+        <Route path="/PilgrimageViewdetails" element={<PilgrimageViewdetails />} />
         <Route path="/PilgrimageHome" element={<PilgrimageHome />} />
-
       </Routes>
 
       <Footer />
